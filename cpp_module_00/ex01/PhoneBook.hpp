@@ -33,4 +33,4 @@ class PhoneBook
 		void addContact();
 };
 
-#endif //PHONEBOOK_HPP
+#endif /* PHONEBOOK_HPP */

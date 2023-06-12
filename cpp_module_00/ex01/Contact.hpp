@@ -38,4 +38,4 @@ class Contact
 		void setDarkestSecret(const std::string &value);
 };
 
-#endif //CONTACT_HPP
+#endif /* CONTACT_HPP */
