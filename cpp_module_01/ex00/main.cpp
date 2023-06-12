@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:13:10 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/12 19:56:46 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:28:29 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int main(void)
 {
-	randomChump("foo");
+	Zombie *zombie;
+
+	zombie = newZombie("foo");
+	zombie->announce();
+	randomChump("bar");
+	delete zombie;
 	return (0);
 }

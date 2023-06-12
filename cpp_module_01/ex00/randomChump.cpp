@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:13:59 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/12 19:39:07 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:25:56 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	randomChump(std::string name)
 {
-	Zombie *zombie;
-
-	zombie = newZombie(name);
-	zombie->announce();
-	delete zombie;
+	Zombie zombie(name);
+	zombie.announce();
 }

@@ -6,11 +6,19 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:13:22 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/12 19:38:13 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/06/13 00:27:40 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie()
+{}
+
+Zombie::Zombie(std::string value)
+{
+	this->name = value;
+}
 
 Zombie::~Zombie(void)
 {

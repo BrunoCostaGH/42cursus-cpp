@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:13:32 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/12 17:17:22 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/06/13 00:32:14 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 class Zombie
 {
+	std::string	name;
+
 	public:
-		std::string	name;
-		void announce(void);
+		Zombie(std::string value);
 		~Zombie(void);
+		void announce(void);
 };
 
 Zombie *newZombie(std::string name);
