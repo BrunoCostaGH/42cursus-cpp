@@ -23,19 +23,19 @@ class Contact
 	std::string	nickname;
 	std::string	darkestSecret;
 
-	public:
-		// getters
-		std::string getPhoneNumber();
-		std::string getFirstName();
-		std::string getLastName();
-		std::string getNickname();
-		std::string getDarkestSecret();
-		// setters
-		void setPhoneNumber(const std::string &value);
-		void setFirstName(const std::string &value);
-		void setLastName(const std::string &value);
-		void setNickname(const std::string &value);
-		void setDarkestSecret(const std::string &value);
+public:
+	// getters
+	std::string getPhoneNumber();
+	std::string getFirstName();
+	std::string getLastName();
+	std::string getNickname();
+	std::string getDarkestSecret();
+	// setters
+	void setPhoneNumber(const std::string& value);
+	void setFirstName(const std::string& value);
+	void setLastName(const std::string& value);
+	void setNickname(const std::string& value);
+	void setDarkestSecret(const std::string& value);
 };
 
 #endif /* CONTACT_HPP */

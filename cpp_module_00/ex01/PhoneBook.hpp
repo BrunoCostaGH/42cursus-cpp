@@ -21,16 +21,16 @@ class PhoneBook
 	int		len;
 	Contact contacts[8];
 
-	public:
-		PhoneBook(); // constructor
-		// getters
-		int length() const;
-		int getIndex() const;
-		Contact getContact(int i);
-		// setters
-		void incrementIndex();
-		void incrementLength();
-		void addContact();
+public:
+	PhoneBook(); // constructor
+	// getters
+	int length() const;
+	int getIndex() const;
+	Contact getContact(int i);
+	// setters
+	void incrementIndex();
+	void incrementLength();
+	void addContact();
 };
 
 #endif /* PHONEBOOK_HPP */
