@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 20:18:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/10 17:15:24 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/06/12 17:13:32 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/06/13 00:32:14 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-# include <string>
-# include <cstdio>
-# include <cstdlib>
-# include <iostream>
-# include "Contact.hpp"
-# include "PhoneBook.hpp"
+#include <iostream>
 
-#endif /* MAIN_H */
+class Zombie
+{
+	std::string	name;
+
+public:
+	Zombie(std::string value);
+	~Zombie(void);
+	void announce(void);
+};
+
+Zombie *newZombie(std::string name);
+void	randomChump(std::string name);
+
+#endif /* ZOMBIE_HPP */

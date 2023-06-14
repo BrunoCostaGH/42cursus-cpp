@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 20:18:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/10 17:15:24 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/06/13 17:02:13 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/06/14 14:33:45 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef HARL_HPP
+# define HARL_HPP
 
-# include <string>
-# include <cstdio>
-# include <cstdlib>
-# include <iostream>
-# include "Contact.hpp"
-# include "PhoneBook.hpp"
+#include <string>
 
-#endif /* MAIN_H */
+class Harl
+{
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
+	typedef void (Harl::*fnPrototype)(void);
+
+public:
+	void complain(std::string level);
+};
+
+#endif /* HARL_HPP */

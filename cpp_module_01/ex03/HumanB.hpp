@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 20:18:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/10 17:15:24 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/06/13 14:43:55 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/06/13 15:19:38 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-# include <string>
-# include <cstdio>
-# include <cstdlib>
-# include <iostream>
-# include "Contact.hpp"
-# include "PhoneBook.hpp"
+# include "Weapon.hpp"
 
-#endif /* MAIN_H */
+class HumanB
+{
+	std::string name;
+	Weapon* weapon;
+
+public:
+	HumanB();
+	HumanB(const std::string& vName);
+	void attack();
+	void setWeapon(Weapon& wValue);
+};
+
+#endif /* HUMANB_HPP */

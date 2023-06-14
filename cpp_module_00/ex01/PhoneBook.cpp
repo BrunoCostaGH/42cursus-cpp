@@ -47,7 +47,7 @@ void	PhoneBook::incrementLength()
 		this->len++;
 }
 
-static void	setPrompt(std::string *s_value, const std::string &field)
+static void	setPrompt(std::string *s_value, const std::string& field)
 {
 	while (!std::cin.good() || (*s_value).length() == 0)
 	{

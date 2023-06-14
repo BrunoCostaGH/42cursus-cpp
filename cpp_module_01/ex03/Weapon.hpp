@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 20:18:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/10 17:15:24 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/06/13 14:43:19 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/06/13 17:08:45 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-# include <string>
-# include <cstdio>
-# include <cstdlib>
-# include <iostream>
-# include "Contact.hpp"
-# include "PhoneBook.hpp"
+#include <iostream>
 
-#endif /* MAIN_H */
+class Weapon
+{
+	std::string type;
+
+public:
+	Weapon();
+	Weapon(const std::string& value);
+	const std::string& getType();
+	void setType(const std::string& value);
+};
+
+#endif /* WEAPON_HPP */

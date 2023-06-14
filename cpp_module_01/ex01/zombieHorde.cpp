@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 20:18:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/06/10 17:15:24 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/06/12 19:46:42 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/06/13 00:20:25 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Zombie.hpp"
 
-# include <string>
-# include <cstdio>
-# include <cstdlib>
-# include <iostream>
-# include "Contact.hpp"
-# include "PhoneBook.hpp"
+Zombie *zombieHorde(int N, std::string name)
+{
+	Zombie *pZombie;
 
-#endif /* MAIN_H */
+	if (!N || name.empty())
+		return (0);
+	pZombie = new Zombie[N];
+	while (N--)
+		pZombie[N] = Zombie(name);
+	return (pZombie);
+}

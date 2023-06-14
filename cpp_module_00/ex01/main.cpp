@@ -12,7 +12,7 @@
 
 #include "main.h"
 
-static std::string formatValue(const std::string &value)
+static std::string formatValue(const std::string& value)
 {
 	std::string	result;
 
