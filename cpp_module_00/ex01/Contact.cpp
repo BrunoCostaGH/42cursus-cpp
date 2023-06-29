@@ -42,7 +42,7 @@ void Contact::setPhoneNumber(const std::string& value)
 	this->phoneNumber = value;
 }
 
-	void Contact::setFirstName(const std::string& value)
+void Contact::setFirstName(const std::string& value)
 {
 	this->firstName = value;
 }
