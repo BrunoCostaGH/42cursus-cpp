@@ -52,5 +52,7 @@ int main(int argc, char **argv)
 				std::cout << "[ Probably complaining about insignificant problems ]\n";
 		}
 	}
+	else
+		std::cout << "Usage: ./harlFilter <level>\n";
 	return (0);
 }
