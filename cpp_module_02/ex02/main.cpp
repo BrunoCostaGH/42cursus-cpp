@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 16:06:15 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/04 17:41:24 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/03 16:05:59 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/04 17:36:04 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Fixed.hpp"
 
-class Fixed
+int main(void)
 {
-	int fixedPoint;
-	static const int fractionalBits = 8;
+	Fixed		a;
+	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-public:
-	/* Orthodox Canonical Form */
-	Fixed();						// Constructor
-	Fixed(Fixed& value);			// Copy Constructor
-	Fixed& operator=(Fixed& value);	// Copy Assignment Operator Overload
-	~Fixed();						// Destructor
-	/* -- */
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-	int getRawBits(void);
-	void setRawBits(int const raw);
-};
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
+}

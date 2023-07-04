@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:06:15 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/03 20:40:15 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:41:15 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ public:
 	Fixed(const Fixed& value);		// Copy Constructor
 	Fixed& operator=(const Fixed& value);	// Copy Assignment Operator Overload
 	~Fixed();						// Destructor
-	void setRawBits(int const raw);
+
 	int	getRawBits(void) const;
+	void setRawBits(int const raw);
+
 	int toInt(void) const;
 	float toFloat(void) const;
 };
