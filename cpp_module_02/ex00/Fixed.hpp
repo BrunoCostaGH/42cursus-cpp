@@ -6,9 +6,12 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:06:15 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/04 17:41:24 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:25:40 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 #include <iostream>
 
@@ -25,6 +28,8 @@ public:
 	~Fixed();						// Destructor
 	/* -- */
 
-	int getRawBits(void);
+	int getRawBits(void) const;
 	void setRawBits(int const raw);
 };
+
+#endif /* FIXED_HPP */
