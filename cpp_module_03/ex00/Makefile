@@ -6,7 +6,7 @@
 #    By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 15:22:14 by bsilva-c          #+#    #+#              #
-#    Updated: 2023/07/06 15:22:32 by bsilva-c         ###   ########.fr        #
+#    Updated: 2023/07/07 19:55:08 by bsilva-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ DEPS=
 
 SRCS=main.cpp ClapTrap.cpp
 OBJS=$(SRCS:.cpp=.o)
-NAME=a.out
+NAME=ClapTrap
 
 all: $(NAME)
 $(NAME): $(OBJS) $(DEPS)

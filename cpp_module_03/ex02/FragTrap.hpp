@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 17:20:46 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/07 17:32:06 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/07 17:40:35 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/07 19:06:36 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include "ClapTrap.hpp"
 
-class	ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 public:
-	ScavTrap(const std::string& name);			// Parameterized Constructor
+	FragTrap(const std::string& name);			// Parameterized Constructor
 	/* Orthodox Canonical Form */
-	ScavTrap(void);								// Constructor
-	ScavTrap(ScavTrap& value);					// Copy Constructor
-	ScavTrap& operator=(const ScavTrap& value);	// Copy Assignment Operator Overload
-	~ScavTrap(void);							// Destructor
+	FragTrap(void);								// Constructor
+	FragTrap(FragTrap& value);					// Copy Constructor
+	FragTrap& operator=(const FragTrap& value);	// Copy Assignment Operator Overload
+	~FragTrap(void);							// Destructor
 	/* -- */
-	void attack(const std::string& target);
-	void guardGate(void);
+	using ClapTrap::attack;
+	void highFivesGuys(void);
 };
 
-#endif /* SCAVTRAP_HPP */
+#endif /* FRAGTRAP_HPP */

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:20:46 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/07 17:32:06 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:07:51 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class	ScavTrap : public ClapTrap
+class	ScavTrap : virtual public ClapTrap
 {
 public:
 	ScavTrap(const std::string& name);			// Parameterized Constructor

@@ -6,13 +6,13 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:21:43 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/06 17:13:22 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/07 17:49:02 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(void)
 {
 	std::cout << "Default constructor called\n";
 	this->hitPoints = 10;
@@ -47,7 +47,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &value)
 	return (*this);
 }
 
-ClapTrap::~ClapTrap()
+ClapTrap::~ClapTrap(void)
 {
 	std::cout << "Destructor called\n";
 }
