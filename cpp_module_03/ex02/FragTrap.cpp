@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:40:26 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/07 17:52:55 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/18 20:55:30 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ FragTrap::FragTrap(const std::string& name)
 	this->energyPoints = 100;
 	this->attackDamage = 30;
 }
-FragTrap::FragTrap(FragTrap &value)
+FragTrap::FragTrap(FragTrap &value) : ClapTrap(value)
 {
 	std::cout << "`FragTrap' Copy constructor called\n";
 	*this = value;

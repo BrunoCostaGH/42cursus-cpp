@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:58:14 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/07 19:36:05 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/18 20:56:25 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ DiamondTrap::DiamondTrap(const std::string& name)
 	this->ScavTrap::energyPoints = 50;
 	this->FragTrap::attackDamage = 30;
 }
-DiamondTrap::DiamondTrap(DiamondTrap &value)
+DiamondTrap::DiamondTrap(DiamondTrap &value) : ScavTrap(value), FragTrap(value)
 {
 	std::cout << "`DiamondTrap' Copy constructor called\n";
 	*this = value;
