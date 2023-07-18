@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 19:47:37 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 20:34:18 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/18 21:00:14 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/18 21:37:13 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog()
+WrongCat::WrongCat()
 {
-	std::cout << "Dog default constructor called\n";
-	this->type = "Dog";
+	std::cout << "WrongCat default constructor called\n";
+	this->type = "Wrong Cat";
 }
 
-Dog::Dog(Dog &value) : Animal(value)
+WrongCat::WrongCat(WrongCat &value) : WrongAnimal(value)
 {
-	std::cout << "Dog copy constructor called\n";
+	std::cout << "WrongCat copy constructor called\n";
 	*this = value;
-	this->type = "Dog";
+	this->type = "Wrong Cat";
 }
 
-Dog &Dog::operator=(const Dog &value)
+WrongCat &WrongCat::operator=(const WrongCat &value)
 {
-	std::cout << "Dog copy assignment operator called\n";
+	std::cout << "WrongCat copy assignment operator called\n";
 	this->type = value.type;
 	return (*this);
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "Dog destructor called\n";
-}
-
-void Dog::makeSound() const
-{
-	std::cout << "Woof\n";
+	std::cout << "WrongCat destructor called\n";
 }

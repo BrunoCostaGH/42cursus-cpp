@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 19:47:44 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 20:34:34 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/18 21:02:15 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/18 21:31:38 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "Animal.hpp"
+# include <iostream>
 
-class Dog : public Animal
+class WrongAnimal
 {
+protected:
+	std::string type;
 public:
-	Dog();								// default constructor
-	Dog(Dog& value);					// copy constructor
-	Dog& operator=(const Dog& value);	// copy assignment operator overflow
-	~Dog();								// destructor
+	WrongAnimal();										// default constructor
+	WrongAnimal(WrongAnimal& value);					// copy constructor
+	WrongAnimal& operator=(const WrongAnimal& value);	// copy assignment operator overflow
+	virtual ~WrongAnimal();								// destructor
 
 	void makeSound() const;
+	std::string getType() const;
 };
 
-#endif /* DOG_HPP */
+#endif /* WRONGANIMAL_HPP */
