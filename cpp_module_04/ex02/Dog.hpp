@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 21:00:22 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:25:55 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/18 19:47:44 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/20 17:46:45 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include "WrongAnimal.hpp"
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class WrongCat : public WrongAnimal
+class Dog : public AAnimal
 {
+	Brain* brain;
 public:
-	WrongCat(void);									// default constructor
-	WrongCat(WrongCat& value);					// copy constructor
-	WrongCat& operator=(const WrongCat& value);	// copy assignment operator overflow
-	~WrongCat(void);								// destructor
+	Dog(void);								// default constructor
+	Dog(Dog& value);					// copy constructor
+	Dog& operator=(const Dog& value);	// copy assignment operator overflow
+	~Dog(void);								// destructor
+
+	void makeSound(void) const;
 };
 
-#endif /* WRONGCAT_HPP */
+#endif /* DOG_HPP */

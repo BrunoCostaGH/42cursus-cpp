@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 21:00:22 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:25:55 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/20 20:00:22 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/20 21:49:05 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-# include "WrongAnimal.hpp"
+# include <iostream>
+# include "AMateria.hpp"
 
-class WrongCat : public WrongAnimal
+class IMateriaSource
 {
 public:
-	WrongCat(void);									// default constructor
-	WrongCat(WrongCat& value);					// copy constructor
-	WrongCat& operator=(const WrongCat& value);	// copy assignment operator overflow
-	~WrongCat(void);								// destructor
+	virtual ~IMateriaSource(void) {}
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
-#endif /* WRONGCAT_HPP */
+#endif /* IMATERIASOURCE_HPP */

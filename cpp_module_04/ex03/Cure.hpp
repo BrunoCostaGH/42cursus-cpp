@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 21:00:22 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:25:55 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/20 20:03:22 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/20 21:39:38 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include "WrongAnimal.hpp"
+# include "AMateria.hpp"
 
-class WrongCat : public WrongAnimal
+class Cure : public AMateria
 {
 public:
-	WrongCat(void);									// default constructor
-	WrongCat(WrongCat& value);					// copy constructor
-	WrongCat& operator=(const WrongCat& value);	// copy assignment operator overflow
-	~WrongCat(void);								// destructor
-};
+	Cure();								// default constructor
+	Cure(Cure &value);					// copy constructor
+	Cure &operator=(const Cure &value);	// copy assignment operator overflow
+	~Cure();							// destructor
 
-#endif /* WRONGCAT_HPP */
+	AMateria * clone() const;
+	void use(ICharacter &target);
+};
+#endif /* CURE_HPP */

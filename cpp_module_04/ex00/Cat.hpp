@@ -15,15 +15,15 @@
 
 # include "Animal.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 public:
-	Cat();								// default constructor
+	Cat(void);								// default constructor
 	Cat(Cat& value);					// copy constructor
 	Cat& operator=(const Cat& value);	// copy assignment operator overflow
-	~Cat();								// destructor
+	~Cat(void);								// destructor
 
-	void makeSound() const;
+	void makeSound(void) const;
 };
 
 #endif /* CAT_HPP */

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:47:06 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:36:20 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:41:16 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,23 @@
 
 int main(void)
 {
-	const AAnimal* meta = new AAnimal();
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
-	const WrongAnimal* wrongMeta = new WrongAnimal();
-	const WrongAnimal* wrongI = new WrongCat();
+	const AAnimal *animals[10];
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-
-	delete meta;
-	delete j;
-	delete i;
-	/* Wrong AAnimal/Cat */
-	std::cout << std::endl;
-
-	std::cout << wrongMeta->getType() << " " << std::endl;
-	wrongMeta->makeSound();
-	std::cout << wrongI->getType() << " " << std::endl;
-	wrongI->makeSound(); //will output the wrongMeta sound!
-
-	delete wrongMeta;
-	delete wrongI;
+	// init dogs
+	for (int i = 0; i < 4; ++i)
+	{
+		animals[i] = new Dog();
+	}
+	// init cats
+	for (int i = 4; i < 9; ++i)
+	{
+		animals[i] = new Cat();
+	}
+	// print types and free from heap
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << animals[i]->getType() << " " << std::endl;
+		delete animals[i];
+	}
 	return 0;
 }

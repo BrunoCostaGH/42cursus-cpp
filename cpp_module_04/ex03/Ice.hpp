@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 21:00:22 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:25:55 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/20 20:02:06 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/20 21:33:32 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include "WrongAnimal.hpp"
+# include "AMateria.hpp"
 
-class WrongCat : public WrongAnimal
+class Ice : public AMateria
 {
 public:
-	WrongCat(void);									// default constructor
-	WrongCat(WrongCat& value);					// copy constructor
-	WrongCat& operator=(const WrongCat& value);	// copy assignment operator overflow
-	~WrongCat(void);								// destructor
+	Ice();								// default constructor
+	Ice(Ice& value);					// copy constructor
+	Ice& operator=(const Ice& value);	// copy assignment operator overflow
+	~Ice();								// destructor
+
+	AMateria * clone() const;
+	void use(ICharacter &target);
 };
 
-#endif /* WRONGCAT_HPP */
+#endif /* ICE_HPP */

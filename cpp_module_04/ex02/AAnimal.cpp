@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 21:00:14 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:37:13 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/07/18 19:47:17 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/07/20 19:40:19 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "AAnimal.hpp"
 
-WrongCat::WrongCat(void)
+AAnimal::AAnimal(void)
 {
-	std::cout << "WrongCat default constructor called\n";
-	this->type = "Wrong Cat";
+	std::cout << "AAnimal default constructor called\n";
+	this->type = "Fox";
 }
 
-WrongCat::WrongCat(WrongCat &value) : WrongAnimal(value)
+AAnimal::AAnimal(AAnimal &value)
 {
-	std::cout << "WrongCat copy constructor called\n";
+	std::cout << "AAnimal copy constructor called\n";
 	*this = value;
-	this->type = "Wrong Cat";
+	this->type = "Fox";
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &value)
+AAnimal &AAnimal::operator=(const AAnimal &value)
 {
-	std::cout << "WrongCat copy assignment operator called\n";
+	std::cout << "AAnimal copy assignment operator called\n";
 	this->type = value.type;
 	return (*this);
 }
 
-WrongCat::~WrongCat(void)
+AAnimal::~AAnimal(void)
 {
-	std::cout << "WrongCat destructor called\n";
+	std::cout << "AAnimal destructor called\n";
+}
+
+std::string AAnimal::getType(void) const
+{
+	return (this->type);
 }
