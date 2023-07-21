@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 20:04:13 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/21 18:37:51 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:41:43 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class Character : public ICharacter
 {
 	AMateria *materia[4];
+	AMateria *unequippedMateria[4];
 	std::string name;
 
 public:
