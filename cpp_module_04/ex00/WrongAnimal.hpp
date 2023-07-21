@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 21:02:15 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:31:38 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:41:07 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class WrongAnimal
 protected:
 	std::string type;
 public:
-	WrongAnimal(void);										// default constructor
+	WrongAnimal(void);									// default constructor
 	WrongAnimal(WrongAnimal& value);					// copy constructor
 	WrongAnimal& operator=(const WrongAnimal& value);	// copy assignment operator overflow
-	virtual ~WrongAnimal(void);								// destructor
+	virtual ~WrongAnimal(void);							// destructor
 
 	void makeSound(void) const;
 	std::string getType(void) const;

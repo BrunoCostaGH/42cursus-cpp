@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:30:39 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/20 17:30:39 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:42:40 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Brain
 {
 	std::string ideas[100];
 public:
-	Brain(void);								// default constructor
+	Brain(void);							// default constructor
 	Brain(Brain& value);					// copy constructor
 	Brain& operator=(const Brain& value);	// copy assignment operator overflow
-	~Brain(void);								// destructor
+	~Brain(void);							// destructor
 };
 
 #endif /* BRAIN_HPP */

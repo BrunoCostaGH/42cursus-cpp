@@ -22,7 +22,7 @@ WrongAnimal::WrongAnimal(WrongAnimal &value)
 {
 	std::cout << "WrongAnimal copy constructor called\n";
 	*this = value;
-	this->type = "Wrong Fox";
+	this->type = value.type;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &value)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:47:17 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/20 19:40:19 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:58:59 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ AAnimal::AAnimal(AAnimal &value)
 {
 	std::cout << "AAnimal copy constructor called\n";
 	*this = value;
-	this->type = "Fox";
+	this->type = value.type;
 }
 
 AAnimal &AAnimal::operator=(const AAnimal &value)

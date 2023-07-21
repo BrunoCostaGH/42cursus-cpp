@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:47:37 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/20 17:47:55 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:09:06 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ Dog::Dog(Dog &value) : AAnimal(value)
 {
 	std::cout << "Dog copy constructor called\n";
 	*this = value;
-	this->brain = new Brain();
-	this->type = "Dog";
+	this->brain = new Brain(*value.brain);
+	this->type = value.type;
 }
 
 Dog &Dog::operator=(const Dog &value)
 {
 	std::cout << "Dog copy assignment operator called\n";
-	this->brain = value.brain;
+	this->brain = new Brain(*value.brain);
 	this->type = value.type;
 	return (*this);
 }

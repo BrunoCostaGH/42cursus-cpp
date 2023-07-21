@@ -20,6 +20,7 @@ int main(void)
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+
 	ICharacter* me = new Character("me");
 	ICharacter* bob = new Character("bob");
 	AMateria* tmp;

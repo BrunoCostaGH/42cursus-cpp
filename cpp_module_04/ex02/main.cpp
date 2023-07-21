@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:47:06 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/20 19:41:16 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:23:54 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int main(void)
 	const AAnimal *animals[10];
 
 	// init dogs
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		animals[i] = new Dog();
 	}
 	// init cats
-	for (int i = 4; i < 9; ++i)
+	for (int i = 5; i < 10; ++i)
 	{
 		animals[i] = new Cat();
 	}

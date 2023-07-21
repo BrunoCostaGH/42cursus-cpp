@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:47:44 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/20 17:46:45 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:42:55 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Dog : public AAnimal
+class Dog : public Animal
 {
 	Brain* brain;
 public:
-	Dog(void);								// default constructor
+	Dog(void);							// default constructor
 	Dog(Dog& value);					// copy constructor
 	Dog& operator=(const Dog& value);	// copy assignment operator overflow
-	~Dog(void);								// destructor
+	~Dog(void);							// destructor
 
 	void makeSound(void) const;
 };

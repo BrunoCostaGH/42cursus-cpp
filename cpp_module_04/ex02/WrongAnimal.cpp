@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 21:02:04 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:37:05 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:09:24 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ WrongAnimal::WrongAnimal(WrongAnimal &value)
 {
 	std::cout << "WrongAnimal copy constructor called\n";
 	*this = value;
-	this->type = "Wrong Fox";
+	this->type = value.type;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &value)

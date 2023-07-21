@@ -20,10 +20,10 @@ class Dog : public AAnimal
 {
 	Brain* brain;
 public:
-	Dog(void);								// default constructor
+	Dog(void);							// default constructor
 	Dog(Dog& value);					// copy constructor
 	Dog& operator=(const Dog& value);	// copy assignment operator overflow
-	~Dog(void);								// destructor
+	~Dog(void);							// destructor
 
 	void makeSound(void) const;
 };

@@ -27,7 +27,7 @@ Brain::Brain(Brain &value)
 Brain& Brain::operator=(const Brain& value)
 {
 	std::cout << "Brain copy assignment operator called\n";
-	std::copy(value.ideas->begin(void), value.ideas->end(void), this->ideas->begin(void));
+	std::copy(value.ideas->begin(), value.ideas->end(), this->ideas->begin());
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 21:00:14 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 21:37:13 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:54:03 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ WrongCat::WrongCat(WrongCat &value) : WrongAnimal(value)
 {
 	std::cout << "WrongCat copy constructor called\n";
 	*this = value;
-	this->type = "Wrong Cat";
+	this->type = value.type;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &value)

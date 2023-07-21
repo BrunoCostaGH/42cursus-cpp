@@ -16,9 +16,9 @@
 
 int main(void)
 {
-	const AAnimal* meta = new AAnimal();
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 	const WrongAnimal* wrongMeta = new WrongAnimal();
 	const WrongAnimal* wrongI = new WrongCat();
 
@@ -31,7 +31,7 @@ int main(void)
 	delete meta;
 	delete j;
 	delete i;
-	/* Wrong AAnimal/Cat */
+	/* Wrong Animal/Cat */
 	std::cout << std::endl;
 
 	std::cout << wrongMeta->getType() << " " << std::endl;

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:47:51 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/18 20:53:13 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:43:56 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ Cat::Cat(void)
 	this->type = "Cat";
 }
 
-Cat::Cat(Cat &value) : AAnimal(value)
+Cat::Cat(Cat &value) : Animal(value)
 {
 	std::cout << "Cat copy constructor called\n";
 	*this = value;
-	this->type = "Cat";
+	this->type = value.type;
 }
 
 Cat &Cat::operator=(const Cat &value)

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 20:04:06 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/20 23:03:08 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 18:37:02 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Character::Character(const std::string& name)
 Character::Character(Character &value)
 {
 	*this = value;
+	this->name = value.name;
 	memcpy(this->materia, value.materia, sizeof(AMateria *) * 4);
 }
 
