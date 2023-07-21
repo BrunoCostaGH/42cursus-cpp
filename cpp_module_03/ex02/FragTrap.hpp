@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:40:35 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/07 19:06:36 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 19:07:50 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class FragTrap : public ClapTrap
 {
 public:
-	FragTrap(const std::string& name);			// Parameterized Constructor
+	FragTrap(const std::string& value);			// Parameterized Constructor
 	/* Orthodox Canonical Form */
 	FragTrap(void);								// Constructor
 	FragTrap(FragTrap& value);					// Copy Constructor

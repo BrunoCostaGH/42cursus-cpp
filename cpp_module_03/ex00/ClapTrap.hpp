@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:21:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/07 17:48:27 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 19:05:26 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ClapTrap
 	int			attackDamage;
 
 public:
-	ClapTrap(const std::string& name);			// Parameterized Constructor
+	ClapTrap(const std::string& value);			// Parameterized Constructor
 	/* Orthodox Canonical Form */
 	ClapTrap(void);								// Constructor
 	ClapTrap(ClapTrap& value);					// Copy Constructor

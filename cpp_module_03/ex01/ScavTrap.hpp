@@ -18,7 +18,7 @@
 class	ScavTrap : public ClapTrap
 {
 public:
-	ScavTrap(const std::string& name);			// Parameterized Constructor
+	ScavTrap(const std::string& value);			// Parameterized Constructor
 	/* Orthodox Canonical Form */
 	ScavTrap(void);								// Constructor
 	ScavTrap(ScavTrap& value);					// Copy Constructor

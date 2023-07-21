@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:21:43 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/07 19:02:25 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/07/21 19:00:14 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ ClapTrap::ClapTrap(void)
 	this->attackDamage = 20;
 }
 
-ClapTrap::ClapTrap(const std::string& name)
+ClapTrap::ClapTrap(const std::string& value)
 {
 	std::cout << "`ClapTrap' Parameterized constructor called\n";
-	this->name = name;
+	this->name = value;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
@@ -32,9 +32,10 @@ ClapTrap::ClapTrap(ClapTrap &value)
 {
 	std::cout << "`ClapTrap' Copy constructor called\n";
 	*this = value;
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
+	this->name = value.name;
+	this->hitPoints = value.hitPoints;
+	this->energyPoints = value.energyPoints;
+	this->attackDamage = value.attackDamage;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &value)
