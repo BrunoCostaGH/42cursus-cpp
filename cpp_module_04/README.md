@@ -2,7 +2,7 @@
 
 ## Description
 
-This module is designed to help you understand Ad-hoc polymorphism, overloads and orthodox canonical classes in CPP.
+This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP.
 
 [![GitHub](https://img.shields.io/github/license/BrunoCostaGH/42cursus-cpp?style=for-the-badge)](https://github.com/BrunoCostaGH/42cursus-cpp)
 [![GitHub contributors](https://img.shields.io/github/contributors/BrunoCostaGH/42cursus-cpp?style=for-the-badge)](https://github.com/BrunoCostaGH/42cursus-cpp)
