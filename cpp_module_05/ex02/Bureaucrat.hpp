@@ -6,16 +6,16 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 15:26:21 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/08/16 15:48:33 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:57:24 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -37,7 +37,8 @@ public:
 	void		incrementGrade(void);
 	void		decrementGrade(void);
 
-	void		signForm(Form&) const;
+	void		signForm(AForm&) const;
+	void		executeForm(const AForm & form);
 
 	class GradeTooHighException : public std::exception
 	{

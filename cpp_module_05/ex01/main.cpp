@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 15:26:05 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/08/15 17:32:42 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:02:45 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int main(void)
 		try
 		{
 			std::cout << "Object initialization\n";
-			Bureaucrat bureaucrat("all_valid", 50);
+			std::cout << std::endl;
+			Bureaucrat bureaucrat("all_valid", 1);
 			std::cout << bureaucrat;
-			std::cout << "Increment grade\n";
-			bureaucrat.incrementGrade();
-			std::cout << bureaucrat;
-			std::cout << "Decrement grade\n";
-			bureaucrat.decrementGrade();
-			std::cout << bureaucrat;
+			Form form("a simple form", 1, 1);
+			std::cout << form;
+			std::cout << std::endl;
+			bureaucrat.signForm(form);
+			std::cout << form;
 		}
 		catch (std::exception &e)
 		{
@@ -34,12 +34,13 @@ int main(void)
 		}
 	}
 	{
-		std::cout << "\nNot valid grade on object initialization\n";
+		std::cout << std::endl;
+		std::cout << "Not valid grade on object initialization\n";
 		try
 		{
 			std::cout << "Object initialization\n";
-			Bureaucrat bureaucrat("not_valid_init", 0);
-			std::cout << bureaucrat;
+			Form form("a simple form", 0, 151);
+			std::cout << form;
 		}
 		catch (std::exception &e)
 		{
@@ -47,31 +48,19 @@ int main(void)
 		}
 	}
 	{
-		std::cout << "\nNot valid grade increment\n";
+		std::cout << std::endl;
+		std::cout << "Not enough grade to sign\n";
 		try
 		{
 			std::cout << "Object initialization\n";
-			Bureaucrat bureaucrat("not_valid_increment", 1);
+			std::cout << std::endl;
+			Bureaucrat bureaucrat("all_valid", 5);
 			std::cout << bureaucrat;
-			std::cout << "Increment grade\n";
-			bureaucrat.incrementGrade();
-			std::cout << bureaucrat;
-		}
-		catch (std::exception &e)
-		{
-			std::cout << e.what();
-		}
-	}
-	{
-		std::cout << "\nNot valid grade decrement\n";
-		try
-		{
-			std::cout << "Object initialization\n";
-			Bureaucrat bureaucrat("not_valid_decrement", 150);
-			std::cout << bureaucrat;
-			std::cout << "Decrement grade\n";
-			bureaucrat.decrementGrade();
-			std::cout << bureaucrat;
+			Form form("a simple form", 1, 1);
+			std::cout << form;
+			std::cout << std::endl;
+			bureaucrat.signForm(form);
+			std::cout << form;
 		}
 		catch (std::exception &e)
 		{
