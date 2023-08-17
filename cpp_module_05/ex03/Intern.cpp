@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 16:25:19 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/08/17 18:26:49 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/08/17 18:32:24 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ AForm *Intern::makeForm(const std::string& type, const std::string& target) cons
 	fnPrototype fpMap[3] = {&presidentialPardonForm, &robotomyRequestForm, \
                         &shrubberyCreationForm};
 
-	for (int i = 3; i >= 0; i--)
+	for (int i = 2; i >= 0; i--)
 	{
 		if (fnMap[i] == type)
 		{
