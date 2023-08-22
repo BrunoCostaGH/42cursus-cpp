@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 12:30:12 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/08/22 12:40:11 by bsilva-c         ###   ########.fr       */
+/*   Created: 2023/08/22 12:30:01 by bsilva-c          #+#    #+#             */
+/*   Updated: 2023/08/22 12:56:05 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Serializer.hpp"
 
-# include <iostream>
-
-class ScalarConverter
+int	main(void)
 {
-	ScalarConverter();
-	ScalarConverter(const ScalarConverter&);
-	ScalarConverter& operator=(const ScalarConverter&);
-	~ScalarConverter();
+	Data *data = new Data;
+	uintptr_t uData;
 
-public:
-	static void convert(const char *argv, const std::string &literal);
-};
+	std::cout << data << std::endl;
+	uData = Serializer::serialize(data);
+
+	std::cout << uData << std::endl;
+
+	data = Serializer::deserialize(uData);
+	std::cout << data << std::endl;
+
+	delete data;
+	return (0);
+}
