@@ -16,7 +16,7 @@ DEPS=
 
 SRCS=main.cpp
 OBJS=$(SRCS:.cpp=.o)
-NAME=iter
+NAME=array
 
 all: $(NAME)
 $(NAME): $(OBJS) $(DEPS)
