@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:17:39 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/02 15:44:01 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:57:47 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ const char* BitcoinExchangeLowerBoundException::what() const throw()
 
 void readDatabase(std::map<std::string, std::string>& map)
 {
-	std::fstream	fsData;
-	std::string		sBuffer;
+	std::fstream	fstream;
+	std::string		buffer;
 
-	openFile("data.csv", &fsData); // open database file
-	if (!fsData.is_open())
+	openFile("data.csv", &fstream); // open database file
+	if (!fstream.is_open())
 		return ;
-	if (!getline(fsData, sBuffer) || sBuffer != "date,exchange_rate")
+	if (!getline(fstream, buffer) || buffer != "date,exchange_rate")
 	{
 		std::cout << "Error: data.csv: empty or unsupported file\n";
-		fsData.close();
+		fstream.close();
 		return ;
 	}
-	while (getline(fsData, sBuffer))
+	while (getline(fstream, buffer))
 	{
 		{
-			std::stringstream	ssBuffer(sBuffer);
+			std::stringstream	ssBuffer(buffer);
 			std::string			values[2];
 
 			getline(ssBuffer, values[0], ',');
@@ -42,7 +42,7 @@ void readDatabase(std::map<std::string, std::string>& map)
 			map[values[0]] = values[1];
 		}
 	}
-	fsData.close();
+	fstream.close();
 }
 
 static float	getExchangeBitcoinAmount(std::map<std::string, std::string> map, \
@@ -65,9 +65,9 @@ static float	getExchangeBitcoinAmount(std::map<std::string, std::string> map, \
 }
 
 static void	checkConversionRate(const std::map<std::string, std::string>& map, \
-		const std::string& sBuffer)
+		const std::string& buffer)
 {
-	std::stringstream	ssBuffer(sBuffer);
+	std::stringstream	ssBuffer(buffer);
 	std::string			sValues[2];// Date and Value, respectively
 	float				fValue;
 
@@ -81,18 +81,18 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 		sValues[1].erase(0, 1);
 	if (sValues[1].empty())
 	{
-		std::cerr << "Error: bad input => " << sBuffer << std::endl;
+		std::cerr << "Error: bad input => " << buffer << std::endl;
 		return ;
 	}
 	fValue = convert<float>(sValues[1]);
-	// check values
+	// check sValues
 	if (isValidDateFormat(sValues[0]) && isValidValue(fValue))
 	{
 		try
 		{
 			std::cout << sValues[0] << " => " << fValue << " = " << \
                 getExchangeBitcoinAmount(map, sValues[0], sValues[1]) \
-				  << std::endl;
+ << std::endl;
 		}
 		catch (std::exception &e)
 		{
@@ -105,19 +105,19 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 void	exchangeBitcoin(const std::map<std::string, std::string>& map, \
 		const std::string& file)
 {
-	std::fstream	fsInput;
-	std::string		sBuffer;
+	std::fstream	fstream;
+	std::string		buffer;
 
-	openFile(file, &fsInput); // open input file
-	if (!fsInput.is_open())
+	openFile(file, &fstream); // open input file
+	if (!fstream.is_open())
 		return ;
-	if (!getline(fsInput, sBuffer) || sBuffer != "date | value")
+	if (!getline(fstream, buffer) || buffer != "date | value")
 	{
 		std::cout << "Error: " << file << ": empty or unsupported file\n";
-		fsInput.close();
+		fstream.close();
 		return ;
 	}
-	while (getline(fsInput, sBuffer))
-		checkConversionRate(map, sBuffer);
-	fsInput.close();
+	while (getline(fstream, buffer))
+		checkConversionRate(map, buffer);
+	fstream.close();
 }

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 14:43:30 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/02 15:08:05 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:58:22 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ bool isValidDateFormat(const std::string& date)
 	return (bIsValid);
 }
 
-void openFile(const std::string& file, std::fstream* dst)
+void openFile(const std::string& file, std::fstream* fstream)
 {
-	if (dst->is_open())
-		dst->close();
-	dst->open(file.c_str(), std::ios::in);
-	if (!dst->is_open())
+	if (fstream->is_open())
+		fstream->close();
+	fstream->open(file.c_str(), std::ios::in);
+	if (!fstream->is_open())
 	{
-		dst->clear();
+		fstream->clear();
 		std::cerr << "Error: `" << file << "': Could not open file\n";
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:22:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/02 15:45:52 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:53:35 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 template <typename T>
 T convert(const std::string& value)
 {
-	T					res;
+	T					_return;
 	std::stringstream	ss(value);
 
-	ss >> res;
-	return (res);
+	ss >> _return;
+	return (_return);
 }
 
 template <typename T>
@@ -52,7 +52,7 @@ public:
 	virtual const char *what() const throw();
 };
 
-void	openFile(const std::string& file, std::fstream* dst);
+void	openFile(const std::string& file, std::fstream* fstream);
 void	readDatabase(std::map<std::string, std::string>& map);
 void	exchangeBitcoin(const std::map<std::string, std::string>& map, const std::string& file);
 
