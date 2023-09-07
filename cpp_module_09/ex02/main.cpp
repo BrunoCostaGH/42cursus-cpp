@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:59:37 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/05 17:12:25 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/07 12:26:43 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,26 +71,40 @@ int main(int argc, char **argv)
 		std::cout << "Usage:\n\t./PmergeMe <positive_integer_sequence>\n";
 		return (1);
 	}
-	std::list<int>	list;
-	std::deque<int>	deque;
+	std::vector<int>	vector;
+	std::deque<int>		deque;
 
 	{
 		double	ml_ini = 0;
 
-		fillContainer(list, argv + 1);
 		(void)timestamp(ml_ini);
-		std::cout << "Time to process a range of " << list.size() << \
-			" elements with " << "std::list" << " : " << std::fixed << \
+		fillContainer(vector, argv + 1);
+		sortAlgorithm(vector);
+		std::cout << "Time to process a range of " << vector.size() << \
+			" elements with " << "std::vector" << " : " << std::fixed << \
 				std::setprecision(5) << timestamp(ml_ini) << " us\n";
+/*		std::cout << "Container:";
+		for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); ++it)
+		{
+			std::cout << " " << *it;
+		}
+		std::cout << "\n";*/
 	}
 	{
 		double	ml_ini = 0;
 
-		fillContainer(deque, argv + 1);
 		(void)timestamp(ml_ini);
+		fillContainer(deque, argv + 1);
+		sortAlgorithm(deque);
 		std::cout << "Time to process a range of " << deque.size() << \
 			" elements with " << "std::deque" << " : " << std::fixed << \
 				std::setprecision(5) << timestamp(ml_ini) << " us\n";
+/*		std::cout << "Container:";
+		for (std::deque<int>::iterator it = deque.begin(); it != deque.end(); ++it)
+		{
+			std::cout << " " << *it;
+		}
+		std::cout << "\n";*/
 	}
 	return (0);
 }
