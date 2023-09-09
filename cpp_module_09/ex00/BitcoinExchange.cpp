@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:17:39 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/09 15:11:49 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:20:28 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,9 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 	{
 		try
 		{
-			std::cout << sValues[0] << " => " << fValue << " = ";
 			std::cout << std::fixed << std::setprecision(2);
+			std::cout << sValues[0] << " => " << fValue << " = ";
 			std::cout << getExchangeBitcoinAmount(map, sValues[0], sValues[1]) << std::endl;
-			std::cout << std::resetiosflags( std::cout.flags() );
 		}
 		catch (std::exception &e)
 		{
