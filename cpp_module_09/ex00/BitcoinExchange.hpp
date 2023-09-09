@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:22:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/02 17:53:35 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/07 18:41:41 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,24 @@ bool isValidValue(T& value)
 	}
 	return (true);
 }
-
-class BitcoinExchangeLowerBoundException : public std::exception
+class BitcoinExchange
 {
 public:
-	virtual const char *what() const throw();
+	BitcoinExchange();
+	BitcoinExchange(const BitcoinExchange&);
+	BitcoinExchange& operator=(const BitcoinExchange&);
+	~BitcoinExchange();
+
+	static void	readDatabase(std::map<std::string, std::string>& map);
+	static void	exchangeBitcoin(const std::map<std::string, std::string>& map, const std::string& file);
+
+	class BitcoinExchangeLowerBoundException : public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
 };
 
 void	openFile(const std::string& file, std::fstream* fstream);
-void	readDatabase(std::map<std::string, std::string>& map);
-void	exchangeBitcoin(const std::map<std::string, std::string>& map, const std::string& file);
 
 bool	isValidDateFormat(const std::string& date);

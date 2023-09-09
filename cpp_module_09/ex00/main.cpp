@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 14:43:30 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/02 17:58:22 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/07 18:42:03 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 	}
 	std::map<std::string, std::string>	map;
 
-	readDatabase(map);
-	exchangeBitcoin(map, argv[1]);
+	BitcoinExchange::readDatabase(map);
+	BitcoinExchange::exchangeBitcoin(map, argv[1]);
 	return (0);
 }

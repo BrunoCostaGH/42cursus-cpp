@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 15:51:33 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/05 13:52:49 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:22:04 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,31 @@
 
 static int	fillStack(std::stack<int>& stack, std::string& argv)
 {
+	int	amountNumbers = 0;
+	int amountOperators = 0;
+
 	for (std::string::iterator it = argv.end(); it >= argv.begin(); --it)
 	{
 		if (*it && strchr("0123456789", *it))
+		{
 			stack.push(*it - '0');
+			amountNumbers++;
+		}
 		else if (*it && strchr("+-/*", *it))
-				stack.push(*it);
+		{
+			stack.push(*it);
+			amountOperators++;
+		}
 		else if (*it && *it != ' ')
 		{
 			std::cout << "Error!\n";
 			return (1);
 		}
+	}
+	if (amountNumbers < 2 || amountOperators < 1)
+	{
+		std::cout << "Error!\n";
+		return (1);
 	}
 	return (0);
 }
@@ -44,9 +58,9 @@ int main(int argc, char **argv)
 		return (1);
 	try
 	{
-		std::cout << calculate(stack) << std::endl;
+		std::cout << RPN::calculate(stack) << std::endl;
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
 		std:: cout << e.what();
 		return (1);

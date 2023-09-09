@@ -6,16 +6,25 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 15:51:12 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/05 13:57:13 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:18:10 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-const char* InvalidFormatException::what() const throw()
+RPN::RPN()
+{}
+
+RPN::RPN(const RPN&)
+{}
+
+RPN& RPN::operator=(const RPN&)
 {
-	return ("Error: Expression is not a valid RPN expression!\n");
+	return (*this);
 }
+
+RPN::~RPN()
+{}
 
 static int	execute(std::stack<int>& stack, int firstNumber, int secondNumber)
 {
@@ -38,7 +47,7 @@ static int	execute(std::stack<int>& stack, int firstNumber, int secondNumber)
  * RETURN VALUE
  * If RPN expression is valid returns it's result, otherwise throws an exception.
  */
- int	calculate(std::stack<int>& stack)
+ int	RPN::calculate(std::stack<int>& stack)
 {
 	int firstNumber;
 	int secondNumber;
@@ -60,7 +69,12 @@ static int	execute(std::stack<int>& stack, int firstNumber, int secondNumber)
 			stack.pop();
 		}
 		else
-			throw (InvalidFormatException());
+			throw (RPN::RPNInvalidFormatException());
 	}
 	return (firstNumber);
+}
+
+const char* RPN::RPNInvalidFormatException::what() const throw()
+{
+	return ("Error: Expression is not a valid RPN expression!\n");
 }

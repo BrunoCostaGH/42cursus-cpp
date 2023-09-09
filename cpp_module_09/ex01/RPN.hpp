@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:33:14 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/05 13:39:41 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:15:38 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,20 @@
 #include <stack>
 #include <cstring>
 
-int	calculate(std::stack<int>& stack);
-
-class InvalidFormatException : std::exception
+class RPN
 {
-	virtual const char *what() const throw();
+public:
+	RPN();
+	RPN(const RPN&);
+	RPN& operator=(const RPN&);
+	~RPN();
+
+	static int	calculate(std::stack<int>& stack);
+
+	class RPNInvalidFormatException : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
 };
+
+

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:59:57 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/07 12:26:45 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/07 18:37:50 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,9 @@
 #include <vector>
 #include <string>
 
-template <typename T>
-T&	sortAlgorithm(T& container)
+template <class T>
+static void insertion(T& container, T& left, T& right)
 {
-	if (container.size() <= 1)
-		return (container);
-
-	int	straggler = 0;
-	if (container.size() % 2)
-	{
-		straggler = container.back();
-		container.pop_back();
-	}
-	int	midPoint = container.size() / 2;
-	T	left(container.begin(), container.begin() + midPoint);
-	T	right(container.begin() + midPoint, container.end());
-
-	left = sortAlgorithm(left);
-	right = sortAlgorithm(right);
-
-	container.clear();
 	while (left.size() && right.size())
 	{
 		if (left.front() < right.front())
@@ -60,6 +43,28 @@ T&	sortAlgorithm(T& container)
 		container.push_back(right.front());
 		right.erase(right.begin());
 	}
+}
+
+template <class T>
+static T&	sortAlgorithm(T& container)
+{
+	if (container.size() <= 1)
+		return (container);
+
+	int	straggler = 0;
+	if (container.size() % 2)
+	{
+		straggler = container.back();
+		container.pop_back();
+	}
+	int	midPoint = container.size() / 2;
+	T	left(container.begin(), container.begin() + midPoint);
+	T	right(container.begin() + midPoint, container.end());
+
+	left = sortAlgorithm(left);
+	right = sortAlgorithm(right);
+	container.clear();
+	insertion(container, left, right);
 	if (straggler)
 	{
 		for (typename T::iterator it = container.begin(); it != container.end(); ++it)
@@ -75,7 +80,17 @@ T&	sortAlgorithm(T& container)
 	return (container);
 }
 
-template
-std::vector<int>& sortAlgorithm(std::vector<int>& container);
-template
-std::deque<int>& sortAlgorithm(std::deque<int>& container);
+class PmergeMe
+{
+public:
+	PmergeMe();
+	PmergeMe(const PmergeMe&);
+	PmergeMe& operator=(const PmergeMe&);
+	~PmergeMe();
+
+	template <typename T>
+	static void sort(T& container)
+	{
+		(void)sortAlgorithm(container);
+	}
+};

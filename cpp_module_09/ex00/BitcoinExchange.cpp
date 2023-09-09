@@ -6,18 +6,28 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:17:39 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/02 17:57:47 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:11:49 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iomanip>
 #include "BitcoinExchange.hpp"
 
-const char* BitcoinExchangeLowerBoundException::what() const throw()
+BitcoinExchange::BitcoinExchange()
+{}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange&)
+{}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange&)
 {
-	return ("Error: Input date is too low.\n");
+	return (*this);
 }
 
-void readDatabase(std::map<std::string, std::string>& map)
+BitcoinExchange::~BitcoinExchange()
+{}
+
+void BitcoinExchange::readDatabase(std::map<std::string, std::string>& map)
 {
 	std::fstream	fstream;
 	std::string		buffer;
@@ -48,20 +58,13 @@ void readDatabase(std::map<std::string, std::string>& map)
 static float	getExchangeBitcoinAmount(std::map<std::string, std::string> map, \
 		const std::string& date, const std::string& value)
 {
-	for (std::map<std::string, std::string>::iterator it = map.begin(); it != map.end(); ++it)
+	for (std::map<std::string, std::string>::reverse_iterator it = map.rbegin(); \
+		it != map.rend(); ++it)
 	{
-		if (it->first == date)
+		if (it->first <= date)
 			return (convert<float>(value) * convert<float>(it->second));
-		else if (it->first > date)
-		{
-			if (it != map.begin())
-				--it;
-			else
-				throw (BitcoinExchangeLowerBoundException());
-			return (convert<float>(value) * convert<float>(it->second));
-		}
 	}
-	return (0);
+	throw (BitcoinExchange::BitcoinExchangeLowerBoundException());
 }
 
 static void	checkConversionRate(const std::map<std::string, std::string>& map, \
@@ -90,9 +93,10 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 	{
 		try
 		{
-			std::cout << sValues[0] << " => " << fValue << " = " << \
-                getExchangeBitcoinAmount(map, sValues[0], sValues[1]) \
- << std::endl;
+			std::cout << sValues[0] << " => " << fValue << " = ";
+			std::cout << std::fixed << std::setprecision(2);
+			std::cout << getExchangeBitcoinAmount(map, sValues[0], sValues[1]) << std::endl;
+			std::cout << std::resetiosflags( std::cout.flags() );
 		}
 		catch (std::exception &e)
 		{
@@ -100,9 +104,9 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 			std::cerr << "Error: bad input => " << sValues[0] << std::endl;
 		}
 	}
-};
+}
 
-void	exchangeBitcoin(const std::map<std::string, std::string>& map, \
+void	BitcoinExchange::exchangeBitcoin(const std::map<std::string, std::string>& map, \
 		const std::string& file)
 {
 	std::fstream	fstream;
@@ -120,4 +124,9 @@ void	exchangeBitcoin(const std::map<std::string, std::string>& map, \
 	while (getline(fstream, buffer))
 		checkConversionRate(map, buffer);
 	fstream.close();
+}
+
+const char* BitcoinExchange::BitcoinExchangeLowerBoundException::what() const throw()
+{
+	return ("Error: Input date is too low.\n");
 }

@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:59:37 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/07 12:26:43 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:32:08 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static bool isValidPositiveInteger(const std::string& value)
 }
 
 template <typename T>
-static void	fillContainer(T& container, char **argv)
+static int	fillContainer(T& container, char **argv)
 {
 	for (int i = 0; argv[i]; ++i)
 	{
@@ -59,8 +59,18 @@ static void	fillContainer(T& container, char **argv)
 		else
 		{
 			std::cout << "Error: `" << argv[i] << "': Unknown value\n";
-			return;
+			return (1);
 		}
+	}
+	return (0);
+}
+
+template <typename T>
+static void	printContainer(T& container)
+{
+	for (typename T::iterator it = container.begin(); it != container.end(); ++it)
+	{
+		std::cout << " " << *it;
 	}
 }
 
@@ -78,33 +88,35 @@ int main(int argc, char **argv)
 		double	ml_ini = 0;
 
 		(void)timestamp(ml_ini);
-		fillContainer(vector, argv + 1);
-		sortAlgorithm(vector);
+		if (fillContainer(vector, argv + 1))
+			return (1);
+		std::cout << "Before:";
+		printContainer(vector);
+		std::cout << "\n";
+		PmergeMe::sort(vector);
+		std::cout << "After:";
+		printContainer(vector);
+		std::cout << "\n";
 		std::cout << "Time to process a range of " << vector.size() << \
 			" elements with " << "std::vector" << " : " << std::fixed << \
 				std::setprecision(5) << timestamp(ml_ini) << " us\n";
-/*		std::cout << "Container:";
-		for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); ++it)
-		{
-			std::cout << " " << *it;
-		}
-		std::cout << "\n";*/
 	}
 	{
 		double	ml_ini = 0;
 
 		(void)timestamp(ml_ini);
-		fillContainer(deque, argv + 1);
-		sortAlgorithm(deque);
+		if (fillContainer(deque, argv + 1))
+			return (1);
+		std::cout << "Before:";
+		printContainer(deque);
+		std::cout << "\n";
+		PmergeMe::sort(deque);
+		std::cout << "After:";
+		printContainer(deque);
+		std::cout << "\n";
 		std::cout << "Time to process a range of " << deque.size() << \
 			" elements with " << "std::deque" << " : " << std::fixed << \
 				std::setprecision(5) << timestamp(ml_ini) << " us\n";
-/*		std::cout << "Container:";
-		for (std::deque<int>::iterator it = deque.begin(); it != deque.end(); ++it)
-		{
-			std::cout << " " << *it;
-		}
-		std::cout << "\n";*/
 	}
 	return (0);
 }
