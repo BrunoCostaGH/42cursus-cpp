@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 15:51:33 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/09 15:22:04 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/10 14:18:05 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,10 @@ static int	fillStack(std::stack<int>& stack, std::string& argv)
 			amountOperators++;
 		}
 		else if (*it && *it != ' ')
-		{
-			std::cout << "Error!\n";
-			return (1);
-		}
+			throw (RPN::RPNInvalidFormatException());
 	}
-	if (amountNumbers < 2 || amountOperators < 1)
-	{
-		std::cout << "Error!\n";
-		return (1);
-	}
+	if (amountNumbers < 2 || amountOperators != (amountNumbers - 1))
+		throw (RPN::RPNInvalidFormatException());
 	return (0);
 }
 
@@ -54,10 +48,9 @@ int main(int argc, char **argv)
 	std::string		expression = argv[1];
 	std::stack<int>	stack;
 
-	if (fillStack(stack, expression))
-		return (1);
 	try
 	{
+		fillStack(stack, expression);
 		std::cout << RPN::calculate(stack) << std::endl;
 	}
 	catch (std::exception &e)
