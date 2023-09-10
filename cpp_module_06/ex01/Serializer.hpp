@@ -16,7 +16,7 @@
 # include <stdint.h>
 # include "data.hpp"
 
-class	Serializer
+class Serializer
 {
 	Serializer();
 	Serializer(const Serializer&);

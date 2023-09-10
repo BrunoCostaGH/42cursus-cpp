@@ -25,14 +25,14 @@ public:
 	Fixed(const int value);					// Parameterized Constructor
 	Fixed(const float value);				// Parameterized Constructor
 	Fixed(const Fixed& value);				// Copy Constructor
-	Fixed& operator = (const Fixed& value);	// Copy Assignment Operator Overload
+	Fixed& operator=(const Fixed& value);	// Copy Assignment Operator Overload
 	~Fixed();								// Destructor
 
-	int	getRawBits(void) const;
+	int getRawBits() const;
 	void setRawBits(int const raw);
 
-	int toInt(void) const;
-	float toFloat(void) const;
+	int toInt() const;
+	float toFloat() const;
 
 	static Fixed& min(Fixed& fp1, Fixed& fp2);
 	static Fixed& min(const Fixed& fp1, const Fixed& fp2);
@@ -54,6 +54,7 @@ public:
 	Fixed operator--(void);						// Operator Overload
 	Fixed operator--(int);						// Operator Overload
 };
+
 std::ostream& operator<<(std::ostream& out, Fixed const& value);
 
 #endif /* FIXED_HPP */

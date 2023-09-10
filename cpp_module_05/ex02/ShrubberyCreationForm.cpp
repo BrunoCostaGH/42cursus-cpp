@@ -14,36 +14,40 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-		: AForm("ShrubberyCreationForm", 145, 137)
-{}
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-		: AForm("ShrubberyCreationForm", 145, 137), target(target)
-{}
-
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &value)
-		: AForm(value.getName(), value.getReqGradeSign(), value.getReqGradeExec()), \
-			target(value.target)
-{}
-
-ShrubberyCreationForm &\
-	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &value)
+	: AForm("ShrubberyCreationForm", 145, 137)
 {
-	const_cast<std::string &>(this->target) = value.target;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
+	: AForm("ShrubberyCreationForm", 145, 137), target(target)
+{
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& value)
+	: AForm(value.getName(), value.getReqGradeSign(), value.getReqGradeExec()),
+	  target(value.target)
+{
+}
+
+ShrubberyCreationForm& \
+    ShrubberyCreationForm::operator=(const ShrubberyCreationForm& value)
+{
+	const_cast<std::string&>(this->target) = value.target;
 	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
-{}
+{
+}
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
 	if (executor.getGrade() > this->getReqGradeExec())
 		throw (AForm::GradeTooLowException());
 	else if (this->getIsSigned())
 	{
-		std::string		file = this->target + "_shrubbery";
-		std::fstream	fs;
+		std::string file = this->target + "_shrubbery";
+		std::fstream fs;
 
 		fs.open(file.c_str(), std::fstream::out | std::fstream::trunc);
 		if (fs.is_open())

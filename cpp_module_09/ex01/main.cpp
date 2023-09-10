@@ -12,9 +12,9 @@
 
 #include "RPN.hpp"
 
-static int	fillStack(std::stack<int>& stack, std::string& argv)
+static int fillStack(std::stack<int>& stack, std::string& argv)
 {
-	int	amountNumbers = 0;
+	int amountNumbers = 0;
 	int amountOperators = 0;
 
 	for (std::string::iterator it = argv.end(); it >= argv.begin(); --it)
@@ -37,25 +37,25 @@ static int	fillStack(std::stack<int>& stack, std::string& argv)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
 	if (argc != 2)
 	{
 		std::cout
-				<< "Usage:\n\t/RPN \"<reverse_polish_notation_expression>\"\n";
+			<< "Usage:\n\t/RPN \"<reverse_polish_notation_expression>\"\n";
 		return (1);
 	}
-	std::string		expression = argv[1];
-	std::stack<int>	stack;
+	std::string expression = argv[1];
+	std::stack<int> stack;
 
 	try
 	{
 		fillStack(stack, expression);
 		std::cout << RPN::calculate(stack) << std::endl;
 	}
-	catch (std::exception &e)
+	catch (std::exception& e)
 	{
-		std:: cout << e.what();
+		std::cout << e.what();
 		return (1);
 	}
 	return (0);

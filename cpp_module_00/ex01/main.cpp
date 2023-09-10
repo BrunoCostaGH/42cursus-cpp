@@ -14,7 +14,7 @@
 
 static std::string formatValue(const std::string& value)
 {
-	std::string	result;
+	std::string result;
 
 	result = value;
 	if (result.length() > 10)
@@ -25,7 +25,7 @@ static std::string formatValue(const std::string& value)
 
 static void printTable(PhoneBook phoneBook)
 {
-	int			len;
+	int len;
 	std::string value;
 
 	//header
@@ -41,14 +41,15 @@ static void printTable(PhoneBook phoneBook)
 		std::cout << i << "         " << "|";
 		std::cout << formatValue(phoneBook.getContact(i).getFirstName()) << "|";
 		std::cout << formatValue(phoneBook.getContact(i).getLastName()) << "|";
-		std::cout << formatValue(phoneBook.getContact(i).getNickname()) << std::endl;
+		std::cout << formatValue(phoneBook.getContact(i).getNickname())
+				  << std::endl;
 		std::cout << "-----------------------------------------" << std::endl;
 	}
 }
 
-static void	selectContact(PhoneBook phoneBook)
+static void selectContact(PhoneBook phoneBook)
 {
-	int 		i;
+	int i;
 	std::string prompt;
 
 	std::cout << "index> ";
@@ -64,24 +65,30 @@ static void	selectContact(PhoneBook phoneBook)
 	}
 	std::cout << std::endl;
 	i = -1;
-	if (prompt.length() && prompt.find_first_not_of("0123456789") == std::string::npos)
+	if (prompt.length() &&
+		prompt.find_first_not_of("0123456789") == std::string::npos)
 		i = atoi(prompt.c_str());
 	if ((int)i >= 0 && i < phoneBook.length())
 	{
-		std::cout << "First Name: " << phoneBook.getContact(i).getFirstName() << std::endl;
-		std::cout << "Last Name: " << phoneBook.getContact(i).getLastName() << std::endl;
-		std::cout << "Nickname: " << phoneBook.getContact(i).getNickname() << std::endl;
-		std::cout << "Phone Number: " << phoneBook.getContact(i).getPhoneNumber() << std::endl;
-		std::cout << "Darkest Secret: " << phoneBook.getContact(i).getDarkestSecret() << std::endl;
+		std::cout << "First Name: " << phoneBook.getContact(i).getFirstName()
+				  << std::endl;
+		std::cout << "Last Name: " << phoneBook.getContact(i).getLastName()
+				  << std::endl;
+		std::cout << "Nickname: " << phoneBook.getContact(i).getNickname()
+				  << std::endl;
+		std::cout << "Phone Number: "
+				  << phoneBook.getContact(i).getPhoneNumber() << std::endl;
+		std::cout << "Darkest Secret: "
+				  << phoneBook.getContact(i).getDarkestSecret() << std::endl;
 	}
 	else
 		selectContact(phoneBook);
 }
 
-int	main()
+int main()
 {
-	std::string	prompt;
-	PhoneBook	phoneBook;
+	std::string prompt;
+	PhoneBook phoneBook;
 
 	while (true)
 	{

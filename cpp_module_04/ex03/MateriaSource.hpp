@@ -18,15 +18,15 @@
 
 class MateriaSource : public IMateriaSource
 {
-	AMateria *materia[4];
+	AMateria* materia[4];
 public:
-	MateriaSource(void);									// default constructor
-	MateriaSource(MateriaSource& value);					// copy constructor
-	MateriaSource& operator=(const MateriaSource& value);	// copy assignment operator
-	~MateriaSource(void);									// destructor
+	MateriaSource();
+	MateriaSource(const MateriaSource& value);
+	MateriaSource& operator=(const MateriaSource& value);
+	~MateriaSource();
 
-	void learnMateria(AMateria *);
-	AMateria * createMateria(const std::string &type);
+	void learnMateria(AMateria*);
+	AMateria* createMateria(const std::string& type);
 };
 
-#endif	/* MATERIASOURCE_HPP */
+#endif    /* MATERIASOURCE_HPP */

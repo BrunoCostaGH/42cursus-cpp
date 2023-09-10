@@ -18,10 +18,10 @@
 class WrongCat : public WrongAnimal
 {
 public:
-	WrongCat(void);								// default constructor
-	WrongCat(WrongCat& value);					// copy constructor
-	WrongCat& operator=(const WrongCat& value);	// copy assignment operator overflow
-	~WrongCat(void);							// destructor
+	WrongCat(void);
+	WrongCat(const WrongCat& value);
+	WrongCat& operator=(const WrongCat& value);
+	~WrongCat(void);
 };
 
 #endif /* WRONGCAT_HPP */

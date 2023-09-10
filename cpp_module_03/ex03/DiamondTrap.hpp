@@ -21,16 +21,14 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	std::string name;
 
 public:
-	DiamondTrap(const std::string& value);				// Parameterized Constructor
-	/* Orthodox Canonical Form */
-	DiamondTrap(void);									// Constructor
-	DiamondTrap(DiamondTrap& value);					// Copy Constructor
-	DiamondTrap& operator=(const DiamondTrap& value);	// Copy Assignment Operator Overload
-	~DiamondTrap(void);									// Destructor
-	/* -- */
+	DiamondTrap();
+	DiamondTrap(const std::string& value);
+	DiamondTrap(const DiamondTrap& value);
+	DiamondTrap& operator=(const DiamondTrap& value);
+	~DiamondTrap();
 
 	using ScavTrap::attack;
-	void whoAmI(void);
+	void whoAmI();
 };
 
 #endif /* DIAMONDTRAP_HPP */

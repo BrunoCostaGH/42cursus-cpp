@@ -12,7 +12,7 @@
 
 #include "ClapTrap.hpp"
 
-int	main(void)
+int main(void)
 {
 	ClapTrap a("ClapTrack");
 	ClapTrap b("ScavTrap");

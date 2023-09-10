@@ -12,9 +12,9 @@
 
 #include "Zombie.hpp"
 
-Zombie *zombieHorde(int N, std::string name)
+Zombie* zombieHorde(int N, std::string name)
 {
-	Zombie *pZombie;
+	Zombie* pZombie;
 
 	if (!N || name.empty())
 		return (0);

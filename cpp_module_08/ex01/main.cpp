@@ -45,7 +45,7 @@ int main()
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
-		catch (std::exception & e)
+		catch (std::exception& e)
 		{
 			std::cout << "Caught exception: " << e.what();
 		}
@@ -62,7 +62,7 @@ int main()
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
-		catch (std::exception & e)
+		catch (std::exception& e)
 		{
 			std::cout << "Caught exception: " << e.what();
 		}
@@ -76,13 +76,13 @@ int main()
 			std::vector<int> v(10000);
 
 			std::srand(std::time(0));
-			std::generate(v.begin(), v.end(), std::rand); //generate random numbers
+			std::generate(v.begin(), v.end(), std::rand);
 			sp.addNumbers(v.begin(), v.end());
 
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
-		catch (std::exception & e)
+		catch (std::exception& e)
 		{
 			std::cout << "Caught exception: " << e.what();
 		}

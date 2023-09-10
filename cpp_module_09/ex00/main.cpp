@@ -14,10 +14,10 @@
 
 bool isValidDateFormat(const std::string& date)
 {
-	int					iDateValues[3]; // [YYYY-MM-DD]
-	bool				bIsValid = true;
-	std::string			sBuffer[3];
-	std::stringstream	ssBuffer(date);
+	int iDateValues[3]; // [YYYY-MM-DD]
+	bool bIsValid = true;
+	std::string sBuffer[3];
+	std::stringstream ssBuffer(date);
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -31,8 +31,8 @@ bool isValidDateFormat(const std::string& date)
 	if (iDateValues[1] < 1 || iDateValues[1] > 12)
 		bIsValid = false;
 	// check valid day of month
-	if (iDateValues[2] < 1 || iDateValues[2] > \
-	28 + (iDateValues[1] + (iDateValues[1]/8) % 2 + 2 % iDateValues[1] + 2 * (1/iDateValues[1])))
+	if (iDateValues[2] < 1 || iDateValues[2] > 28 + (iDateValues[1] +
+		(iDateValues[1] / 8) % 2 + 2 % iDateValues[1] + 2 * (1 / iDateValues[1])))
 		bIsValid = false;
 	if (!bIsValid)
 		std::cerr << "Error: bad input => " << date << std::endl;
@@ -58,7 +58,7 @@ int main(int argc, char** argv)
 		std::cerr << "Usage:\n\t./btc <path_to_input_file>\n";
 		return (1);
 	}
-	std::map<std::string, std::string>	map;
+	std::map<std::string, std::string> map;
 
 	BitcoinExchange::readDatabase(map);
 	BitcoinExchange::exchangeBitcoin(map, argv[1]);

@@ -22,5 +22,5 @@ class ScalarConverter
 	~ScalarConverter();
 
 public:
-	static void convert(const char *argv, const std::string &literal);
+	static void convert(const char* argv, const std::string& literal);
 };

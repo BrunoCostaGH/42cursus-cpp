@@ -17,7 +17,7 @@
 #include <vector>
 #include <string>
 
-template <class T>
+template<class T>
 static void insertion(T& container, T& left, T& right)
 {
 	while (left.size() && right.size())
@@ -45,21 +45,21 @@ static void insertion(T& container, T& left, T& right)
 	}
 }
 
-template <class T>
-static T&	sortAlgorithm(T& container)
+template<class T>
+static T& sortAlgorithm(T& container)
 {
 	if (container.size() <= 1)
 		return (container);
 
-	int	straggler = 0;
+	int straggler = 0;
 	if (container.size() % 2)
 	{
 		straggler = container.back();
 		container.pop_back();
 	}
-	int	midPoint = container.size() / 2;
-	T	left(container.begin(), container.begin() + midPoint);
-	T	right(container.begin() + midPoint, container.end());
+	int midPoint = container.size() / 2;
+	T left(container.begin(), container.begin() + midPoint);
+	T right(container.begin() + midPoint, container.end());
 
 	left = sortAlgorithm(left);
 	right = sortAlgorithm(right);
@@ -88,7 +88,7 @@ public:
 	PmergeMe& operator=(const PmergeMe&);
 	~PmergeMe();
 
-	template <typename T>
+	template<typename T>
 	static void sort(T& container)
 	{
 		(void)sortAlgorithm(container);

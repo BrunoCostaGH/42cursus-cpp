@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	Zombie *zombie;
+	Zombie* zombie;
 
 	zombie = newZombie("foo");
 	zombie->announce();

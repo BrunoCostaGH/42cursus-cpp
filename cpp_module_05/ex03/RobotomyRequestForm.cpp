@@ -15,29 +15,32 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-		: AForm("RobotomyRequestForm", 72, 45)
-{}
-
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
-		: AForm("RobotomyRequestForm", 72, 45), target(target)
-{}
-
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &value)
-		: AForm(value.getName(), value.getReqGradeSign(), value.getReqGradeExec()), \
-			target(value.target)
-{}
-
-RobotomyRequestForm &\
-	RobotomyRequestForm::operator=(const RobotomyRequestForm &value)
+	: AForm("RobotomyRequestForm", 72, 45)
 {
-	const_cast<std::string &>(this->target) = value.target;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+	: AForm("RobotomyRequestForm", 72, 45), target(target)
+{
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& value)
+	: AForm(value.getName(), value.getReqGradeSign(), value.getReqGradeExec()),
+	  target(value.target)
+{
+}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& value)
+{
+	const_cast<std::string&>(this->target) = value.target;
 	return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
-{}
+{
+}
 
-void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
 	if (executor.getGrade() > this->getReqGradeExec())
 		throw (AForm::GradeTooLowException());

@@ -21,14 +21,12 @@ class Fixed
 	static const int fractionalBits = 8;
 
 public:
-	/* Orthodox Canonical Form */
-	Fixed();						// Constructor
-	Fixed(Fixed& value);			// Copy Constructor
-	Fixed& operator=(Fixed& value);	// Copy Assignment Operator Overload
-	~Fixed();						// Destructor
-	/* -- */
+	Fixed();								// Constructor
+	Fixed(const Fixed& value);				// Copy Constructor
+	Fixed& operator=(const Fixed& value);	// Copy Assignment Operator Overload
+	~Fixed();								// Destructor
 
-	int getRawBits(void) const;
+	int getRawBits() const;
 	void setRawBits(int const raw);
 };
 

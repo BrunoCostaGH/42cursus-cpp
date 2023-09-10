@@ -18,13 +18,13 @@ Fixed::Fixed()
 	this->fixedPoint = 0;
 }
 
-Fixed::Fixed(Fixed &value)
+Fixed::Fixed(const Fixed& value)
 {
 	std::cout << "Copy constructor called\n";
 	*this = value;
 }
 
-Fixed& Fixed::operator=(Fixed& value)
+Fixed& Fixed::operator=(const Fixed& value)
 {
 	std::cout << "Copy assignment operator called\n";
 	this->fixedPoint = value.getRawBits();

@@ -17,27 +17,28 @@ Ice::Ice()
 	this->type = "ice";
 }
 
-Ice::Ice(Ice &value) : AMateria(value)
+Ice::Ice(const Ice& value) : AMateria(value)
 {
 	*this = value;
 	this->type = value.type;
 }
 
-Ice &Ice::operator=(const Ice &value)
+Ice& Ice::operator=(const Ice& value)
 {
 	this->type = value.type;
 	return (*this);
 }
 
 Ice::~Ice()
-{}
+{
+}
 
-AMateria *Ice::clone() const
+AMateria* Ice::clone() const
 {
 	return (new Ice());
 }
 
-void Ice::use(ICharacter &target)
+void Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at " + target.getName() + " *\n";
 }

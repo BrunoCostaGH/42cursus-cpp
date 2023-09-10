@@ -13,14 +13,14 @@
 #include "iter.hpp"
 #include <iostream>
 
-void	add(int &value)
+void add(int& value)
 {
 	value += 1;
 }
 
-int main( void )
+int main(void)
 {
-	int *sum = new int[5];
+	int* sum = new int[5];
 
 	sum[0] = 0;
 	sum[1] = 1;

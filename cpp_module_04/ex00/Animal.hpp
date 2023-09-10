@@ -20,13 +20,13 @@ class Animal
 protected:
 	std::string type;
 public:
-	Animal(void);							// default constructor
-	Animal(Animal& value);					// copy constructor
-	Animal& operator=(const Animal& value);	// copy assignment operator overflow
-	virtual ~Animal(void);					// destructor
+	Animal();
+	Animal(const Animal& value);
+	Animal& operator=(const Animal& value);
+	virtual ~Animal();
 
-	virtual void makeSound(void) const;
-	std::string getType(void) const;
+	virtual void makeSound() const;
+	std::string getType() const;
 };
 
-#endif	/* ANIMAL_HPP */
+#endif    /* ANIMAL_HPP */

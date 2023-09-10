@@ -18,20 +18,21 @@
 # include <limits>
 # include <map>
 
-template <typename T>
+template<typename T>
 T convert(const std::string& value)
 {
-	T					_return;
-	std::stringstream	ss(value);
+	T _return;
+	std::stringstream ss(value);
 
 	ss >> _return;
 	return (_return);
 }
 
-template <typename T>
+template<typename T>
 bool isValidValue(T& value)
 {
-	if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+	if (value < std::numeric_limits<int>::min() ||
+		value > std::numeric_limits<int>::max())
 		return (false);
 	if (value < 0)
 	{
@@ -45,6 +46,7 @@ bool isValidValue(T& value)
 	}
 	return (true);
 }
+
 class BitcoinExchange
 {
 public:
@@ -53,16 +55,17 @@ public:
 	BitcoinExchange& operator=(const BitcoinExchange&);
 	~BitcoinExchange();
 
-	static void	readDatabase(std::map<std::string, std::string>& map);
-	static void	exchangeBitcoin(const std::map<std::string, std::string>& map, const std::string& file);
+	static void readDatabase(std::map<std::string, std::string>& map);
+	static void exchangeBitcoin(const std::map<std::string, std::string>& map,
+								const std::string& file);
 
 	class BitcoinExchangeLowerBoundException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 };
 
-void	openFile(const std::string& file, std::fstream* fstream);
+void openFile(const std::string& file, std::fstream* fstream);
 
-bool	isValidDateFormat(const std::string& date);
+bool isValidDateFormat(const std::string& date);

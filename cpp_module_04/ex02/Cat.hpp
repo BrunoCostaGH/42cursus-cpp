@@ -20,12 +20,12 @@ class Cat : public AAnimal
 {
 	Brain* brain;
 public:
-	Cat(void);							// default constructor
-	Cat(Cat& value);					// copy constructor
-	Cat& operator=(const Cat& value);	// copy assignment operator overflow
-	~Cat(void);							// destructor
+	Cat();
+	Cat(const Cat& value);
+	Cat& operator=(const Cat& value);
+	~Cat();
 
-	void makeSound(void) const;
+	void makeSound() const;
 };
 
 #endif /* CAT_HPP */

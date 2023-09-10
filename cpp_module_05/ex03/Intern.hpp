@@ -26,5 +26,5 @@ public:
 	~Intern();
 
 	AForm* makeForm(const std::string& type, const std::string& target) const;
-	typedef AForm* (*fnPrototype)(const std::string&);
+	typedef AForm* (* fnPrototype)(const std::string&);
 };

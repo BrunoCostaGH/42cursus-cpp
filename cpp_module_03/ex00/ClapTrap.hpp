@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:21:54 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/21 19:05:26 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/10 15:19:13 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,18 @@
 
 class ClapTrap
 {
-	std::string	name;
-	int			hitPoints;
-	int			energyPoints;
-	int			attackDamage;
+	std::string name;
+	int hitPoints;
+	int energyPoints;
+	int attackDamage;
 
 public:
-	ClapTrap(const std::string& value);			// Parameterized Constructor
-	/* Orthodox Canonical Form */
-	ClapTrap(void);								// Constructor
-	ClapTrap(ClapTrap& value);					// Copy Constructor
-	ClapTrap& operator=(const ClapTrap& value);	// Copy Assignment Operator Overload
-	~ClapTrap(void);							// Destructor
-	/* -- */
+	ClapTrap();
+	ClapTrap(const std::string& value);
+	ClapTrap(const ClapTrap& value);
+	ClapTrap& operator=(const ClapTrap& value);
+	~ClapTrap();
+
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);

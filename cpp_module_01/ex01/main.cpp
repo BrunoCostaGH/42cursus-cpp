@@ -14,8 +14,8 @@
 
 int main(void)
 {
-	int		N;
-	Zombie	*pZombie;
+	int N;
+	Zombie* pZombie;
 
 	N = 5;
 	pZombie = zombieHorde(N, "foobar");

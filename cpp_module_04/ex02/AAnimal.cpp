@@ -18,14 +18,14 @@ AAnimal::AAnimal(void)
 	this->type = "Fox";
 }
 
-AAnimal::AAnimal(AAnimal &value)
+AAnimal::AAnimal(const AAnimal& value)
 {
 	std::cout << "AAnimal copy constructor called\n";
 	*this = value;
 	this->type = value.type;
 }
 
-AAnimal &AAnimal::operator=(const AAnimal &value)
+AAnimal& AAnimal::operator=(const AAnimal& value)
 {
 	std::cout << "AAnimal copy assignment operator called\n";
 	this->type = value.type;

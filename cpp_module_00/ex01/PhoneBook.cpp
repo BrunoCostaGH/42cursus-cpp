@@ -24,30 +24,30 @@ int PhoneBook::length() const
 	return (this->len);
 }
 
-int	PhoneBook::getIndex() const
+int PhoneBook::getIndex() const
 {
 	return (this->index);
 }
 
-Contact	PhoneBook::getContact(int i)
+Contact PhoneBook::getContact(int i)
 {
 	return (this->contacts[i]);
 }
 
-void	PhoneBook::incrementIndex()
+void PhoneBook::incrementIndex()
 {
 	this->index++;
 	if (this->index == 8)
 		this->index = 0;
 }
 
-void	PhoneBook::incrementLength()
+void PhoneBook::incrementLength()
 {
 	if (this->len < 8)
 		this->len++;
 }
 
-static void	setPrompt(std::string *s_value, const std::string& field)
+static void setPrompt(std::string* s_value, const std::string& field)
 {
 	while (!std::cin.good() || (*s_value).length() == 0)
 	{
@@ -63,10 +63,10 @@ static void	setPrompt(std::string *s_value, const std::string& field)
 	std::cout << std::endl;
 }
 
-void	PhoneBook::addContact()
+void PhoneBook::addContact()
 {
-	int 		i;
-	std::string	s_value;
+	int i;
+	std::string s_value;
 
 	i = this->getIndex();
 	// First Name
@@ -81,7 +81,8 @@ void	PhoneBook::addContact()
 	setPrompt(&s_value, "Nickname");
 	this->contacts[i].setNickname(s_value);
 	// Phone Number
-	while (s_value.length() == 0 || s_value.find_first_not_of("0123456789") != std::string::npos)
+	while (s_value.length() == 0 ||
+		   s_value.find_first_not_of("0123456789") != std::string::npos)
 	{
 		s_value.clear();
 		setPrompt(&s_value, "Phone Number");

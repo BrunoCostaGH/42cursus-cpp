@@ -24,16 +24,16 @@ protected:
 	std::string type;
 
 public:
-	AMateria();									// default constructor
-	AMateria(std::string const & type);			// parameterized constructor
-	AMateria(AMateria& value);					// copy constructor
-	AMateria& operator=(const AMateria& value);	// copy assignment operator overflow
-	virtual ~AMateria(void);					// destructor
+	AMateria();
+	AMateria(const std::string& type);
+	AMateria(const AMateria& value);
+	AMateria& operator=(const AMateria& value);
+	virtual ~AMateria();
 
-	std::string const & getType(void) const; //Returns the materia type
+	std::string const& getType() const;
 
-	virtual AMateria* clone(void) const = 0;
-	virtual void use(ICharacter &);
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter&);
 };
 
 #endif /* AMATERIA_HPP */

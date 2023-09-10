@@ -18,8 +18,8 @@ int main(void)
 	try
 	{
 		std::cout << "Object initialization\n";
-		Intern	intern;
-		AForm	*form;
+		Intern intern;
+		AForm* form;
 		{
 			std::cout << std::endl;
 			std::cout << "Creating Presidential Pardon Form\n";
@@ -54,7 +54,7 @@ int main(void)
 			delete form;
 		}
 	}
-	catch (std::exception &e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what();
 	}

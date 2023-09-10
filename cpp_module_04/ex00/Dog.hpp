@@ -18,12 +18,12 @@
 class Dog : public Animal
 {
 public:
-	Dog(void);							// default constructor
-	Dog(Dog& value);					// copy constructor
-	Dog& operator=(const Dog& value);	// copy assignment operator overflow
-	~Dog(void);							// destructor
+	Dog();
+	Dog(const Dog& value);
+	Dog& operator=(const Dog& value);
+	~Dog();
 
-	void makeSound(void) const;
+	void makeSound() const;
 };
 
 #endif /* DOG_HPP */

@@ -20,13 +20,13 @@ class AAnimal
 protected:
 	std::string type;
 public:
-	AAnimal(void);								// default constructor
-	AAnimal(AAnimal& value);					// copy constructor
-	AAnimal& operator=(const AAnimal& value);	// copy assignment operator overflow
-	virtual ~AAnimal(void);						// destructor
+	AAnimal();
+	AAnimal(const AAnimal& value);
+	AAnimal& operator=(const AAnimal& value);
+	virtual ~AAnimal();
 
-	virtual void makeSound(void) const = 0;
-	std::string getType(void) const;
+	virtual void makeSound() const = 0;
+	std::string getType() const;
 };
 
-#endif	/* ANIMAL_HPP */
+#endif    /* ANIMAL_HPP */

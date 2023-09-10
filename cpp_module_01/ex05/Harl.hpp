@@ -17,14 +17,14 @@
 
 class Harl
 {
-	void debug(void);
-	void info(void);
-	void warning(void);
-	void error(void);
-	typedef void (Harl::*fnPrototype)(void);
+	void debug();
+	void info();
+	void warning();
+	void error();
+	typedef void (Harl::*fnPrototype)();
 
 public:
-	void complain(std::string level);
+	void complain(const std::string& level);
 };
 
 #endif /* HARL_HPP */

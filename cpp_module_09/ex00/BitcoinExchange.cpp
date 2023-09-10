@@ -14,10 +14,12 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange()
-{}
+{
+}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange&)
-{}
+{
+}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange&)
 {
@@ -25,27 +27,28 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange&)
 }
 
 BitcoinExchange::~BitcoinExchange()
-{}
+{
+}
 
 void BitcoinExchange::readDatabase(std::map<std::string, std::string>& map)
 {
-	std::fstream	fstream;
-	std::string		buffer;
+	std::fstream fstream;
+	std::string buffer;
 
 	openFile("data.csv", &fstream); // open database file
 	if (!fstream.is_open())
-		return ;
+		return;
 	if (!getline(fstream, buffer) || buffer != "date,exchange_rate")
 	{
 		std::cout << "Error: data.csv: empty or unsupported file\n";
 		fstream.close();
-		return ;
+		return;
 	}
 	while (getline(fstream, buffer))
 	{
 		{
-			std::stringstream	ssBuffer(buffer);
-			std::string			values[2];
+			std::stringstream ssBuffer(buffer);
+			std::string values[2];
 
 			getline(ssBuffer, values[0], ',');
 			getline(ssBuffer, values[1]);
@@ -55,11 +58,12 @@ void BitcoinExchange::readDatabase(std::map<std::string, std::string>& map)
 	fstream.close();
 }
 
-static float	getExchangeBitcoinAmount(std::map<std::string, std::string> map, \
-		const std::string& date, const std::string& value)
+static float getExchangeBitcoinAmount(std::map<std::string, std::string> map,
+									  const std::string& date,
+									  const std::string& value)
 {
-	for (std::map<std::string, std::string>::reverse_iterator it = map.rbegin(); \
-		it != map.rend(); ++it)
+	for (std::map<std::string, std::string>::reverse_iterator it = map.rbegin();
+		 it != map.rend(); ++it)
 	{
 		if (it->first <= date)
 			return (convert<float>(value) * convert<float>(it->second));
@@ -67,12 +71,12 @@ static float	getExchangeBitcoinAmount(std::map<std::string, std::string> map, \
 	throw (BitcoinExchange::BitcoinExchangeLowerBoundException());
 }
 
-static void	checkConversionRate(const std::map<std::string, std::string>& map, \
-		const std::string& buffer)
+static void checkConversionRate(const std::map<std::string, std::string>& map,
+								const std::string& buffer)
 {
-	std::stringstream	ssBuffer(buffer);
-	std::string			sValues[2];// Date and Value, respectively
-	float				fValue;
+	std::stringstream ssBuffer(buffer);
+	std::string sValues[2];// Date and Value, respectively
+	float fValue;
 
 	// get date
 	getline(ssBuffer, sValues[0], '|');
@@ -85,7 +89,7 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 	if (sValues[1].empty())
 	{
 		std::cerr << "Error: bad input => " << buffer << std::endl;
-		return ;
+		return;
 	}
 	fValue = convert<float>(sValues[1]);
 	// check sValues
@@ -95,9 +99,10 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 		{
 			std::cout << std::fixed << std::setprecision(2);
 			std::cout << sValues[0] << " => " << fValue << " = ";
-			std::cout << getExchangeBitcoinAmount(map, sValues[0], sValues[1]) << std::endl;
+			std::cout << getExchangeBitcoinAmount(map, sValues[0], sValues[1])
+					  << std::endl;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cerr << e.what();
 			std::cerr << "Error: bad input => " << sValues[0] << std::endl;
@@ -105,20 +110,21 @@ static void	checkConversionRate(const std::map<std::string, std::string>& map, \
 	}
 }
 
-void	BitcoinExchange::exchangeBitcoin(const std::map<std::string, std::string>& map, \
-		const std::string& file)
+void BitcoinExchange::exchangeBitcoin(const std::map<std::string,
+													 std::string>& map,
+									  const std::string& file)
 {
-	std::fstream	fstream;
-	std::string		buffer;
+	std::fstream fstream;
+	std::string buffer;
 
 	openFile(file, &fstream); // open input file
 	if (!fstream.is_open())
-		return ;
+		return;
 	if (!getline(fstream, buffer) || buffer != "date | value")
 	{
 		std::cout << "Error: " << file << ": empty or unsupported file\n";
 		fstream.close();
-		return ;
+		return;
 	}
 	while (getline(fstream, buffer))
 		checkConversionRate(map, buffer);

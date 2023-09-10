@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-template <typename T, typename U>
-void iter(T* address, int length, void(*f)(U&))
+template<typename T, typename U>
+void iter(T* address, int length, void(* f)(U&))
 {
 	for (int i = 0; i < length; i++)
 	{

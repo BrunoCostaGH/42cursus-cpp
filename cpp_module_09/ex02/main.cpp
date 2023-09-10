@@ -16,10 +16,10 @@
 #include <iomanip>
 #include "PmergeMe.hpp"
 
-static double	timestamp(double& ml_ini)
+static double timestamp(double& ml_ini)
 {
-	double					ml_cur;
-	struct timeval			timeval;
+	double ml_cur;
+	struct timeval timeval;
 
 	gettimeofday(&timeval, NULL);
 	ml_cur = (timeval.tv_sec + timeval.tv_usec / 1000000.0);
@@ -28,7 +28,7 @@ static double	timestamp(double& ml_ini)
 	return (ml_cur - ml_ini);
 }
 
-template <typename T>
+template<typename T>
 static T convert(const std::string& value)
 {
 	T _return;
@@ -43,14 +43,15 @@ static bool isValidPositiveInteger(const std::string& value)
 	if (value.find_first_not_of("0123456789") == std::string::npos)
 	{
 		int number = convert<int>(value);
-		if (number >= std::numeric_limits<int>::min() && number <= std::numeric_limits<int>::max())
+		if (number >= std::numeric_limits<int>::min() &&
+			number <= std::numeric_limits<int>::max())
 			return (true);
 	}
 	return (false);
 }
 
-template <typename T>
-static int	fillContainer(T& container, char **argv)
+template<typename T>
+static int fillContainer(T& container, char** argv)
 {
 	for (int i = 0; argv[i]; ++i)
 	{
@@ -65,8 +66,8 @@ static int	fillContainer(T& container, char **argv)
 	return (0);
 }
 
-template <typename T>
-static void	printContainer(T& container)
+template<typename T>
+static void printContainer(T& container)
 {
 	for (typename T::iterator it = container.begin(); it != container.end(); ++it)
 	{
@@ -74,18 +75,18 @@ static void	printContainer(T& container)
 	}
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
 	if (argc < 2)
 	{
 		std::cout << "Usage:\n\t./PmergeMe <positive_integer_sequence>\n";
 		return (1);
 	}
-	std::vector<int>	vector;
-	std::deque<int>		deque;
+	std::vector<int> vector;
+	std::deque<int> deque;
 
 	{
-		double	ml_ini = 0;
+		double ml_ini = 0;
 
 		(void)timestamp(ml_ini);
 		if (fillContainer(vector, argv + 1))
@@ -97,12 +98,12 @@ int main(int argc, char **argv)
 		std::cout << "After:";
 		printContainer(vector);
 		std::cout << "\n";
-		std::cout << "Time to process a range of " << vector.size() << \
-			" elements with " << "std::vector" << " : " << std::fixed << \
-				std::setprecision(5) << timestamp(ml_ini) << " us\n";
+		std::cout << "Time to process a range of " << vector.size()
+				  << " elements with " << "std::vector" << " : " << std::fixed
+				  << std::setprecision(5) << timestamp(ml_ini) << " us\n";
 	}
 	{
-		double	ml_ini = 0;
+		double ml_ini = 0;
 
 		(void)timestamp(ml_ini);
 		if (fillContainer(deque, argv + 1))
@@ -114,9 +115,9 @@ int main(int argc, char **argv)
 		std::cout << "After:";
 		printContainer(deque);
 		std::cout << "\n";
-		std::cout << "Time to process a range of " << deque.size() << \
-			" elements with " << "std::deque" << " : " << std::fixed << \
-				std::setprecision(5) << timestamp(ml_ini) << " us\n";
+		std::cout << "Time to process a range of " << deque.size()
+				  << " elements with " << "std::deque" << " : " << std::fixed
+				  << std::setprecision(5) << timestamp(ml_ini) << " us\n";
 	}
 	return (0);
 }

@@ -19,38 +19,38 @@ class AForm;
 
 class Bureaucrat
 {
-	const std::string	name;
-	int					grade;
-	static const int	maxGrade = 1;
-	static const int	minGrade = 150;
+	const std::string name;
+	int grade;
+	static const int maxGrade = 1;
+	static const int minGrade = 150;
 
 public:
 	Bureaucrat();
-	Bureaucrat(const std::string&, int);
+	Bureaucrat(const std::string& name, int grade);
 	Bureaucrat(const Bureaucrat&);
 	Bureaucrat& operator=(const Bureaucrat&);
 	~Bureaucrat();
 
-	std::string	getName(void) const;
-	int			getGrade(void) const;
+	std::string getName() const;
+	int getGrade() const;
 
-	void		incrementGrade(void);
-	void		decrementGrade(void);
+	void incrementGrade();
+	void decrementGrade();
 
-	void		signForm(AForm&) const;
-	void		executeForm(const AForm & form);
+	void signForm(AForm& form) const;
+	void executeForm(const AForm& form);
 
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 };
 
-std::ostream &operator<<(std::ostream &, const Bureaucrat &);
+std::ostream& operator<<(std::ostream&, const Bureaucrat&);

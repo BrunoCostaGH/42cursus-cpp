@@ -17,8 +17,8 @@
 template<class T>
 class Array
 {
-	T*				elems;
-	unsigned int	arrSize;
+	T* elems;
+	unsigned int arrSize;
 
 public:
 	Array();
@@ -33,6 +33,6 @@ public:
 	class OutOfBoundsException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 };

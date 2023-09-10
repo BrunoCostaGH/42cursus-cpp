@@ -17,7 +17,7 @@ Brain::Brain(void)
 	std::cout << "Brain default constructor called\n";
 }
 
-Brain::Brain(Brain &value)
+Brain::Brain(const Brain& value)
 {
 	std::cout << "Brain copy constructor called\n";
 	*this = value;

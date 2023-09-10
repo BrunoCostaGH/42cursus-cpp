@@ -28,7 +28,7 @@ int main(void)
 			bureaucrat.signForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -42,7 +42,7 @@ int main(void)
 			Form form("a simple form", 0, 151);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -62,7 +62,7 @@ int main(void)
 			bureaucrat.signForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}

@@ -15,18 +15,17 @@
 
 # include "ClapTrap.hpp"
 
-class	ScavTrap : virtual public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 public:
-	ScavTrap(const std::string& value);			// Parameterized Constructor
-	/* Orthodox Canonical Form */
-	ScavTrap(void);								// Constructor
-	ScavTrap(ScavTrap& value);					// Copy Constructor
-	ScavTrap& operator=(const ScavTrap& value);	// Copy Assignment Operator Overload
-	~ScavTrap(void);							// Destructor
-	/* -- */
+	ScavTrap();
+	ScavTrap(const std::string& value);
+	ScavTrap(const ScavTrap& value);
+	ScavTrap& operator=(const ScavTrap& value);
+	~ScavTrap();
+
 	void attack(const std::string& target);
-	void guardGate(void);
+	void guardGate();
 };
 
 #endif /* SCAVTRAP_HPP */

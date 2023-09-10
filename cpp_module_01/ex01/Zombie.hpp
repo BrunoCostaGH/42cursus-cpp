@@ -17,15 +17,15 @@
 
 class Zombie
 {
-	std::string	name;
+	std::string name;
 
 public:
 	Zombie();
-	Zombie(std::string value);
-	~Zombie(void);
-	void announce(void);
+	Zombie(const std::string& value);
+	~Zombie();
+	void announce();
 };
 
-Zombie *zombieHorde(int N, std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
 #endif /* ZOMBIE_HPP */

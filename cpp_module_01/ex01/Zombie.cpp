@@ -13,9 +13,10 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie()
-{}
+{
+}
 
-Zombie::Zombie(std::string value)
+Zombie::Zombie(const std::string& value)
 {
 	this->name = value;
 }
@@ -25,7 +26,7 @@ Zombie::~Zombie(void)
 	std::cout << this->name << " has been destroyed\n";
 }
 
-void	Zombie::announce(void)
+void Zombie::announce(void)
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ...\n";
 }

@@ -17,8 +17,8 @@
 
 class Span
 {
-	std::vector<int>	container;
-	const unsigned int	maxLength;
+	std::vector<int> container;
+	const unsigned int maxLength;
 
 public:
 	Span(void);
@@ -27,22 +27,22 @@ public:
 	Span& operator=(const Span&);
 	~Span(void);
 
-	void	addNumbers(std::vector<int>::iterator first, std::vector<int>::iterator last);
+	void addNumbers(std::vector<int>::iterator first,
+					std::vector<int>::iterator last);
 
-	void	addNumber(int value);
-	int		shortestSpan(void);
-	int		longestSpan(void);
-
+	void addNumber(int value);
+	int shortestSpan(void);
+	int longestSpan(void);
 
 	class TooManyElementsException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 
 	class TooFewElementsException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 };

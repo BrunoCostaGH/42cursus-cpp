@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:40:35 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/21 19:07:50 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/10 15:24:01 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 class FragTrap : public ClapTrap
 {
 public:
-	FragTrap(const std::string& value);			// Parameterized Constructor
-	/* Orthodox Canonical Form */
-	FragTrap(void);								// Constructor
-	FragTrap(FragTrap& value);					// Copy Constructor
-	FragTrap& operator=(const FragTrap& value);	// Copy Assignment Operator Overload
-	~FragTrap(void);							// Destructor
-	/* -- */
+	FragTrap();
+	FragTrap(const std::string& value);
+	FragTrap(const FragTrap& value);
+	FragTrap& operator=(const FragTrap& value);
+	~FragTrap();
+
 	using ClapTrap::attack;
-	void highFivesGuys(void);
+	void highFivesGuys();
 };
 
 #endif /* FRAGTRAP_HPP */

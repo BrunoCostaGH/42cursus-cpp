@@ -15,30 +15,34 @@
 
 Character::Character(void)
 {
-	memset(this->materia, 0, sizeof(AMateria *) * 4);
-	memset(this->unequippedMateria, 0, sizeof(AMateria *) * 4);
+	memset(this->materia, 0, sizeof(AMateria*) * 4);
+	memset(this->unequippedMateria, 0, sizeof(AMateria*) * 4);
 }
 
 Character::Character(const std::string& name)
 {
 	this->name = name;
-	memset(this->materia, 0, sizeof(AMateria *) * 4);
-	memset(this->unequippedMateria, 0, sizeof(AMateria *) * 4);
+	memset(this->materia, 0, sizeof(AMateria*) * 4);
+	memset(this->unequippedMateria, 0, sizeof(AMateria*) * 4);
 }
 
-Character::Character(Character &value)
+Character::Character(const Character& value)
 {
 	*this = value;
 	this->name = value.name;
-	memcpy(this->materia, value.materia, sizeof(AMateria *) * 4);
-	memcpy(this->unequippedMateria, value.unequippedMateria, sizeof(AMateria *) * 4);
+	memcpy(this->materia, value.materia, sizeof(AMateria*) * 4);
+	memcpy(this->unequippedMateria,
+		   value.unequippedMateria,
+		   sizeof(AMateria*) * 4);
 }
 
-Character &Character::operator=(const Character &value)
+Character& Character::operator=(const Character& value)
 {
 	this->name = value.name;
-	memcpy(this->materia, value.materia, sizeof(AMateria *) * 4);
-	memcpy(this->unequippedMateria, value.unequippedMateria, sizeof(AMateria *) * 4);
+	memcpy(this->materia, value.materia, sizeof(AMateria*) * 4);
+	memcpy(this->unequippedMateria,
+		   value.unequippedMateria,
+		   sizeof(AMateria*) * 4);
 	return (*this);
 }
 
@@ -52,12 +56,12 @@ Character::~Character(void)
 			delete (this->unequippedMateria[i]);
 }
 
-const std::string &Character::getName(void) const
+const std::string& Character::getName(void) const
 {
 	return (this->name);
 }
 
-void Character::equip(AMateria *m)
+void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; ++i)
 	{
@@ -88,7 +92,7 @@ void Character::unequip(int idx)
 			{
 				if (!this->materia[i])
 				{
-					this->unequippedMateria[i] = this->materia[idx] ;
+					this->unequippedMateria[i] = this->materia[idx];
 					break;
 				}
 			}
@@ -97,7 +101,7 @@ void Character::unequip(int idx)
 	}
 }
 
-void Character::use(int idx, ICharacter &target)
+void Character::use(int idx, ICharacter& target)
 {
 	for (int i = 0; i < 4; ++i)
 		if (i == idx)

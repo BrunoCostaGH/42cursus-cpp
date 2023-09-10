@@ -24,11 +24,11 @@ public:
 	RPN& operator=(const RPN&);
 	~RPN();
 
-	static int	calculate(std::stack<int>& stack);
+	static int calculate(std::stack<int>& stack);
 
 	class RPNInvalidFormatException : public std::exception
 	{
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 };
 

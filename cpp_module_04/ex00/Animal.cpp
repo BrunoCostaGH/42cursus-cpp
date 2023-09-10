@@ -18,14 +18,14 @@ Animal::Animal(void)
 	this->type = "Fox";
 }
 
-Animal::Animal(Animal &value)
+Animal::Animal(const Animal& value)
 {
 	std::cout << "Animal copy constructor called\n";
 	*this = value;
 	this->type = value.type;
 }
 
-Animal &Animal::operator=(const Animal &value)
+Animal& Animal::operator=(const Animal& value)
 {
 	std::cout << "Animal copy assignment operator called\n";
 	this->type = value.type;

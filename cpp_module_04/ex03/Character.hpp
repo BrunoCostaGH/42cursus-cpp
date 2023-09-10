@@ -18,22 +18,22 @@
 
 class Character : public ICharacter
 {
-	AMateria *materia[4];
-	AMateria *unequippedMateria[4];
+	AMateria* materia[4];
+	AMateria* unequippedMateria[4];
 	std::string name;
 
 public:
-	Character(void);								// default constructor
-	Character(const std::string& name);				// parameterized constructor
-	Character(Character& value);					// copy constructor
-	Character& operator=(const Character& value);	// copy assignment operator
-	~Character(void);								// destructor
+	Character();
+	Character(const std::string& name);
+	Character(const Character& value);
+	Character& operator=(const Character& value);
+	~Character();
 
-	const std::string & getName(void) const;
+	const std::string& getName(void) const;
 
-	void equip(AMateria *m);
+	void equip(AMateria* m);
 	void unequip(int idx);
-	void use(int idx, ICharacter &target);
+	void use(int idx, ICharacter& target);
 };
 
 #endif /* CHARACTER_HPP */

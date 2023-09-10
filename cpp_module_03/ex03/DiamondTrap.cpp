@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:58:14 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/21 19:08:49 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/10 15:27:21 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ DiamondTrap::DiamondTrap(const std::string& value)
 	this->ScavTrap::energyPoints = 50;
 	this->FragTrap::attackDamage = 30;
 }
-DiamondTrap::DiamondTrap(DiamondTrap &value) : ClapTrap(value), ScavTrap(value), FragTrap(value)
+
+DiamondTrap::DiamondTrap(const DiamondTrap& value)
+	: ClapTrap(value), ScavTrap(value), FragTrap(value)
 {
 	std::cout << "`DiamondTrap' Copy constructor called\n";
 	*this = value;
@@ -39,7 +41,7 @@ DiamondTrap::DiamondTrap(DiamondTrap &value) : ClapTrap(value), ScavTrap(value),
 	this->attackDamage = value.attackDamage;
 }
 
-DiamondTrap &DiamondTrap::operator=(const DiamondTrap &value)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& value)
 {
 	std::cout << "`DiamondTrap' Copy assignment operator called\n";
 	this->name = value.name;
@@ -59,5 +61,7 @@ void DiamondTrap::whoAmI()
 	std::cout << "hitPoints: " << this->hitPoints << std::endl;
 	std::cout << "energyPoints: " << this->energyPoints << std::endl;
 	std::cout << "attackDamage: " << this->attackDamage << std::endl;
-	std::cout << "ClapTrap " + this->name + " has ClapTrap name " + ClapTrap::name << std::endl;
+	std::cout
+		<< "ClapTrap " + this->name + " has ClapTrap name " + ClapTrap::name
+		<< std::endl;
 }

@@ -13,39 +13,42 @@
 #include "Form.hpp"
 
 Form::Form()
-		: reqGradeSign(1), reqGradeExec(1), isSigned(false)
-{}
+	: reqGradeSign(1), reqGradeExec(1), isSigned(false)
+{
+}
 
-Form::Form(std::string name, int reqGradeSign, int reqGradeExec)
-		: reqGradeSign(reqGradeSign), reqGradeExec(reqGradeExec)
+Form::Form(const std::string& name, int reqGradeSign, int reqGradeExec)
+	: reqGradeSign(reqGradeSign), reqGradeExec(reqGradeExec)
 {
 	if (this->reqGradeSign < 1 || this->reqGradeExec < 1)
 		throw (Form::GradeTooHighException());
 	else if (this->reqGradeSign > 150 || this->reqGradeExec > 150)
 		throw (Form::GradeTooLowException());
 
-	const_cast<std::string &>(this->name) = name;
-	const_cast<int &>(this->reqGradeSign) = reqGradeSign;
-	const_cast<int &>(this->reqGradeExec) = reqGradeExec;
+	const_cast<std::string&>(this->name) = name;
+	const_cast<int&>(this->reqGradeSign) = reqGradeSign;
+	const_cast<int&>(this->reqGradeExec) = reqGradeExec;
 	this->isSigned = false;
 }
 
-Form::Form(const Form &value)
-		: name(value.name), reqGradeSign(value.reqGradeSign), \
-			reqGradeExec(value.reqGradeExec), isSigned(value.isSigned)
-{}
-
-Form &Form::operator=(const Form &value)
+Form::Form(const Form& value)
+	: name(value.name), reqGradeSign(value.reqGradeSign),
+	  reqGradeExec(value.reqGradeExec), isSigned(value.isSigned)
 {
-	const_cast<std::string &>(this->name) = value.name;
-	const_cast<int &>(this->reqGradeSign) = value.reqGradeSign;
-	const_cast<int &>(this->reqGradeExec) = value.reqGradeExec;
+}
+
+Form& Form::operator=(const Form& value)
+{
+	const_cast<std::string&>(this->name) = value.name;
+	const_cast<int&>(this->reqGradeSign) = value.reqGradeSign;
+	const_cast<int&>(this->reqGradeExec) = value.reqGradeExec;
 	this->isSigned = value.isSigned;
 	return (*this);
 }
 
 Form::~Form()
-{}
+{
+}
 
 std::string Form::getName() const
 {
@@ -67,27 +70,27 @@ bool Form::getIsSigned() const
 	return (this->isSigned);
 }
 
-void	Form::beSigned(const Bureaucrat &bureaucrat)
+void Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getReqGradeSign())
 		throw (Form::GradeTooLowException());
 	this->isSigned = true;
 }
 
-const char *Form::GradeTooHighException::what() const throw()
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high!\n");
 }
 
-const char *Form::GradeTooLowException::what() const throw()
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low!\n");
 }
 
-std::ostream &operator<<(std::ostream &os, const Form &form)
+std::ostream& operator<<(std::ostream& os, const Form& form)
 {
-	const std::string	name = form.getName();
-	bool				isSigned = form.getIsSigned();
+	const std::string name = form.getName();
+	bool isSigned = form.getIsSigned();
 
 	os << name << std::endl;
 	os << std::string(name.length(), '-') << std::endl;

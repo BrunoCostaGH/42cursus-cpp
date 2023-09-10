@@ -21,19 +21,20 @@ class Fixed
 	static const int fractionalBits = 8;
 
 public:
-	Fixed();						// Constructor
-	Fixed(const int value);			// Parameterized Constructor
-	Fixed(const float value);		// Parameterized Constructor
-	Fixed(const Fixed& value);		// Copy Constructor
+	Fixed();								// Constructor
+	Fixed(const int value);					// Parameterized Constructor
+	Fixed(const float value);				// Parameterized Constructor
+	Fixed(const Fixed& value);				// Copy Constructor
 	Fixed& operator=(const Fixed& value);	// Copy Assignment Operator Overload
-	~Fixed();						// Destructor
+	~Fixed();								// Destructor
 
-	int	getRawBits(void) const;
+	int getRawBits() const;
 	void setRawBits(int const raw);
 
-	int toInt(void) const;
-	float toFloat(void) const;
+	int toInt() const;
+	float toFloat() const;
 };
+
 std::ostream& operator<<(std::ostream& out, Fixed const& value);
 
 #endif /* FIXED_HPP */

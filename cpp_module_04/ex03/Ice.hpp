@@ -18,13 +18,13 @@
 class Ice : public AMateria
 {
 public:
-	Ice();								// default constructor
-	Ice(Ice& value);					// copy constructor
-	Ice& operator=(const Ice& value);	// copy assignment operator overflow
-	~Ice();								// destructor
+	Ice();
+	Ice(const Ice& value);
+	Ice& operator=(const Ice& value);
+	~Ice();
 
-	AMateria * clone() const;
-	void use(ICharacter &target);
+	AMateria* clone() const;
+	void use(ICharacter& target);
 };
 
 #endif /* ICE_HPP */

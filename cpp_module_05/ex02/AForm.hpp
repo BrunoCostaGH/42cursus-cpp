@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:36:09 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/08/17 18:26:29 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/10 16:00:52 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,37 @@ class Bureaucrat;
 
 class AForm
 {
-	const std::string	name;
-	const int 			reqGradeSign;
-	const int 			reqGradeExec;
-	bool				isSigned;
+	const std::string name;
+	const int reqGradeSign;
+	const int reqGradeExec;
+	bool isSigned;
 
 public:
-	AForm(void);
-	AForm(std::string, int, int);
+	AForm();
+	AForm(const std::string& name, int reqGradeSign, int reqGradeExec);
 	AForm(const AForm&);
 	AForm& operator=(const AForm&);
-	virtual ~AForm(void);
+	virtual ~AForm();
 
-	std::string getName(void) const;
-	int			getReqGradeSign(void) const;
-	int			getReqGradeExec(void) const;
-	bool		getIsSigned(void) const;
+	std::string getName() const;
+	int getReqGradeSign() const;
+	int getReqGradeExec() const;
+	bool getIsSigned() const;
 
-	void	beSigned(const Bureaucrat&);
-	virtual void	execute(Bureaucrat const & executor) const = 0;
+	void beSigned(const Bureaucrat& bureaucrat);
+	virtual void execute(Bureaucrat const& executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw();
+		virtual const char* what() const throw();
 	};
 };
 
-std::ostream &operator<<(std::ostream&, const AForm&);
+std::ostream& operator<<(std::ostream&, const AForm&);

@@ -16,14 +16,14 @@
 
 class RobotomyRequestForm : public AForm
 {
-	const std::string	target;
+	const std::string target;
 
 public:
 	RobotomyRequestForm();
-	RobotomyRequestForm(std::string target);
+	RobotomyRequestForm(const std::string& target);
 	RobotomyRequestForm(const RobotomyRequestForm&);
 	RobotomyRequestForm& operator=(const RobotomyRequestForm&);
 	~RobotomyRequestForm();
 
-	void execute(const Bureaucrat &executor) const;
+	void execute(const Bureaucrat& executor) const;
 };

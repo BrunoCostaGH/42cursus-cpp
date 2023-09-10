@@ -18,12 +18,13 @@
 class Cure : public AMateria
 {
 public:
-	Cure();								// default constructor
-	Cure(Cure &value);					// copy constructor
-	Cure &operator=(const Cure &value);	// copy assignment operator overflow
-	~Cure();							// destructor
+	Cure();
+	Cure(const Cure& value);
+	Cure& operator=(const Cure& value);
+	~Cure();
 
-	AMateria * clone() const;
-	void use(ICharacter &target);
+	AMateria* clone() const;
+	void use(ICharacter& target);
 };
+
 #endif /* CURE_HPP */

@@ -14,7 +14,7 @@
 #include <vector>
 #include "easyfind.hpp"
 
-int	main(void)
+int main(void)
 {
 	std::vector<int> val;
 

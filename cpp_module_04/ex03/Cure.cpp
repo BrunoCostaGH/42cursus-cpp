@@ -17,27 +17,28 @@ Cure::Cure()
 	this->type = "cure";
 }
 
-Cure::Cure(Cure &value) : AMateria(value)
+Cure::Cure(const Cure& value) : AMateria(value)
 {
 	*this = value;
 	this->type = value.type;
 }
 
-Cure &Cure::operator=(const Cure &value)
+Cure& Cure::operator=(const Cure& value)
 {
 	this->type = value.type;
 	return (*this);
 }
 
 Cure::~Cure()
-{}
+{
+}
 
-AMateria *Cure::clone() const
+AMateria* Cure::clone() const
 {
 	return (new Cure());
 }
 
-void Cure::use(ICharacter &target)
+void Cure::use(ICharacter& target)
 {
 	std::cout << "* heals " + target.getName() + "’s wounds *\n";
 }

@@ -16,22 +16,25 @@
 #include <limits>
 
 ScalarConverter::ScalarConverter()
-{}
+{
+}
 
-ScalarConverter::ScalarConverter(const ScalarConverter &)
-{}
+ScalarConverter::ScalarConverter(const ScalarConverter&)
+{
+}
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &)
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter&)
 {
 	return (*this);
 }
 
 ScalarConverter::~ScalarConverter()
-{}
-
-static int convert_int(const char *argv, const std::string &value)
 {
-	int	res;
+}
+
+static int convert_int(const char* argv, const std::string& value)
+{
+	int res;
 	std::stringstream ss(value);
 
 	if (value.length() == 1 && !isdigit(value[0]))
@@ -40,9 +43,9 @@ static int convert_int(const char *argv, const std::string &value)
 	return (res);
 }
 
-static float convert_float(const char *argv, const std::string &value)
+static float convert_float(const char* argv, const std::string& value)
 {
-	float	res;
+	float res;
 	std::stringstream ss(value);
 
 	if (value.length() == 1 && !isdigit(value[0]))
@@ -51,9 +54,9 @@ static float convert_float(const char *argv, const std::string &value)
 	return (res);
 }
 
-static double convert_double(const char *argv, const std::string &value)
+static double convert_double(const char* argv, const std::string& value)
 {
-	double	res;
+	double res;
 	std::stringstream ss(value);
 
 	if (value.length() == 1 && !isdigit(value[0]))
@@ -62,13 +65,13 @@ static double convert_double(const char *argv, const std::string &value)
 	return (res);
 }
 
-static void print_table(const int *aI, const float *aF, const double *aD)
+static void print_table(const int* aI, const float* aF, const double* aD)
 {
-	std::stringstream	c, i, f, d;
+	std::stringstream c, i, f, d;
 
 	// Char
-	if (aI && *aI < std::numeric_limits<int>::max() && *aI > std::numeric_limits<int>::min() &&\
-		(*aI >= 0 && *aI < 256))
+	if (aI && *aI < std::numeric_limits<int>::max() &&
+		*aI > std::numeric_limits<int>::min() && (*aI >= 0 && *aI < 256))
 	{
 		if (std::isprint(*aI))
 			c << "'" << char(*aI) << "'";
@@ -78,19 +81,22 @@ static void print_table(const int *aI, const float *aF, const double *aD)
 	else
 		c << "impossible";
 	// Int
-	if (aI && *aI < std::numeric_limits<int>::max() && *aI > std::numeric_limits<int>::min()) // check if in int range
+	if (aI && *aI < std::numeric_limits<int>::max() &&
+		*aI > std::numeric_limits<int>::min()) // check if in int range
 		i << *aI;
 	else
 		i << "impossible";
 	// Float
 	f << *aF;
-	if (*aF != std::numeric_limits<float>::infinity() && \
-		*aF != std::numeric_limits<float>::quiet_NaN() && int(*aF * 10) % 10 == 0)
+	if (*aF != std::numeric_limits<float>::infinity() &&
+		*aF != std::numeric_limits<float>::quiet_NaN() &&
+		int(*aF * 10) % 10 == 0)
 		f << ".0";
 	// Double
 	d << *aD;
-	if (*aD != std::numeric_limits<float>::infinity() && \
-		*aD != std::numeric_limits<float>::quiet_NaN() && int(*aD * 10) % 10 == 0)
+	if (*aD != std::numeric_limits<float>::infinity() &&
+		*aD != std::numeric_limits<float>::quiet_NaN() &&
+		int(*aD * 10) % 10 == 0)
 		d << ".0";
 
 	std::cout << "char: " << c.str() << std::endl;
@@ -99,11 +105,11 @@ static void print_table(const int *aI, const float *aF, const double *aD)
 	std::cout << "double: " << d.str() << std::endl;
 }
 
-void ScalarConverter::convert(const char *argv, const std::string &literal)
+void ScalarConverter::convert(const char* argv, const std::string& literal)
 {
-	int		i = convert_int(argv, literal);
-	float	f = convert_float(argv, literal);
-	double	d = convert_double(argv, literal);
+	int i = convert_int(argv, literal);
+	float f = convert_float(argv, literal);
+	double d = convert_double(argv, literal);
 
 	if (literal == "nan")
 	{
@@ -123,12 +129,12 @@ void ScalarConverter::convert(const char *argv, const std::string &literal)
 		d = -std::numeric_limits<double>::infinity();
 		print_table(0, &f, &d);
 	}
-	else if ((literal.find_first_not_of("123456789.") == std::string::npos &&\
-			literal.find_first_of('.') == literal.find_last_of('.')) || \
-			(literal.find_first_not_of("123456789.f") == std::string::npos &&\
-			literal.find_first_of('.') == literal.find_last_of('.') && \
-			literal.find_first_of('f') == literal.length() - 1) || \
-			isprint(literal[0]))
+	else if ((literal.find_first_not_of("123456789.") == std::string::npos &&
+			  literal.find_first_of('.') == literal.find_last_of('.')) ||
+			 (literal.find_first_not_of("123456789.f") == std::string::npos &&
+			  literal.find_first_of('.') == literal.find_last_of('.') &&
+			  literal.find_first_of('f') == literal.length() - 1) ||
+			 isprint(literal[0]))
 	{
 		print_table(&i, &f, &d);
 	}

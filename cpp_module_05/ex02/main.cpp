@@ -15,7 +15,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-void	testShrubberyCreationForm()
+void testShrubberyCreationForm()
 {
 	std::cout << "\n\n testShrubberyCreationForm() \n\n";
 	{
@@ -33,7 +33,7 @@ void	testShrubberyCreationForm()
 			std::cout << form;
 			bureaucrat.executeForm(form);
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -53,7 +53,7 @@ void	testShrubberyCreationForm()
 			bureaucrat.signForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -73,14 +73,14 @@ void	testShrubberyCreationForm()
 			bureaucrat.executeForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
 	}
 }
 
-void	testRobotomyRequestForm()
+void testRobotomyRequestForm()
 {
 	std::cout << "\n\n testRobotomyRequestForm() \n\n";
 	{
@@ -98,7 +98,7 @@ void	testRobotomyRequestForm()
 			std::cout << form;
 			bureaucrat.executeForm(form);
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -118,7 +118,7 @@ void	testRobotomyRequestForm()
 			bureaucrat.signForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -138,14 +138,14 @@ void	testRobotomyRequestForm()
 			bureaucrat.executeForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
 	}
 }
 
-void	testPresidentialPardonForm()
+void testPresidentialPardonForm()
 {
 	std::cout << "\n\n testPresidentialPardonForm() \n\n";
 	{
@@ -163,7 +163,7 @@ void	testPresidentialPardonForm()
 			std::cout << form;
 			bureaucrat.executeForm(form);
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -183,7 +183,7 @@ void	testPresidentialPardonForm()
 			bureaucrat.signForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -203,7 +203,7 @@ void	testPresidentialPardonForm()
 			bureaucrat.executeForm(form);
 			std::cout << form;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}

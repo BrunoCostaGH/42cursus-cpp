@@ -12,7 +12,7 @@
 
 #pragma once
 
-class	Base
+class Base
 {
 public:
 	virtual ~Base();

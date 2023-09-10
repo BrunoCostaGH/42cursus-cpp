@@ -13,20 +13,21 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB()
-{}
+{
+}
 
 HumanB::HumanB(const std::string& sName)
 {
 	this->name = sName;
 }
 
-void	HumanB::attack()
+void HumanB::attack()
 {
 	std::cout << this->name << " attacks with their "
 			  << this->weapon->getType() << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon& wValue)
+void HumanB::setWeapon(Weapon& wValue)
 {
 	this->weapon = &wValue;
 }

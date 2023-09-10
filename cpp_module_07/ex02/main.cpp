@@ -15,7 +15,7 @@
 #include <iostream>
 
 template<typename T>
-void	printObjects(Array<T>& arr, const std::string& name)
+void printObjects(Array<T>& arr, const std::string& name)
 {
 	for (unsigned int i = 0; i < arr.size(); i += 1)
 	{
@@ -25,8 +25,8 @@ void	printObjects(Array<T>& arr, const std::string& name)
 
 int main(void)
 {
-	Array<int>	a(3);
-	Array<int>	b(3);
+	Array<int> a(3);
+	Array<int> b(3);
 
 	// Print a
 	printObjects(a, "a");

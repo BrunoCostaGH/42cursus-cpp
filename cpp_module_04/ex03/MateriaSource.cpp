@@ -15,18 +15,18 @@
 
 MateriaSource::MateriaSource(void)
 {
-	memset(this->materia, 0, sizeof(AMateria *) * 4);
+	memset(this->materia, 0, sizeof(AMateria*) * 4);
 }
 
-MateriaSource::MateriaSource(MateriaSource &value)
+MateriaSource::MateriaSource(const MateriaSource& value)
 {
 	*this = value;
-	memcpy(this->materia, value.materia, sizeof(AMateria *) * 4);
+	memcpy(this->materia, value.materia, sizeof(AMateria*) * 4);
 }
 
-MateriaSource &MateriaSource::operator=(const MateriaSource &value)
+MateriaSource& MateriaSource::operator=(const MateriaSource& value)
 {
-	memcpy(this->materia, value.materia, sizeof(AMateria *) * 4);
+	memcpy(this->materia, value.materia, sizeof(AMateria*) * 4);
 	return (*this);
 }
 
@@ -37,7 +37,7 @@ MateriaSource::~MateriaSource(void)
 			delete (this->materia[i]);
 }
 
-void MateriaSource::learnMateria(AMateria *value)
+void MateriaSource::learnMateria(AMateria* value)
 {
 	for (int i = 0; i < 4; ++i)
 	{
@@ -49,7 +49,7 @@ void MateriaSource::learnMateria(AMateria *value)
 	}
 }
 
-AMateria * MateriaSource::createMateria(const std::string &type)
+AMateria* MateriaSource::createMateria(const std::string& type)
 {
 	for (int i = 0; i < 4; ++i)
 		if (this->materia[i]->getType() == type)

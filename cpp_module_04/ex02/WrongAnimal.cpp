@@ -18,14 +18,14 @@ WrongAnimal::WrongAnimal(void)
 	this->type = "Wrong Fox";
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal &value)
+WrongAnimal::WrongAnimal(const WrongAnimal& value)
 {
 	std::cout << "WrongAnimal copy constructor called\n";
 	*this = value;
 	this->type = value.type;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &value)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& value)
 {
 	std::cout << "WrongAnimal copy assignment operator called\n";
 	this->type = value.type;

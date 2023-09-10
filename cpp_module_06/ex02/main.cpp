@@ -22,21 +22,21 @@
  * It randomly instantiates A, B or C and returns the instance as a Base pointer.
  * Feel free to use anything you like for the random choice implementation.
  */
-Base * generate(void)
+Base* generate(void)
 {
 	srand(time(0));
-	char	type = "ABC"[rand() % 3];
+	char type = "ABC"[rand() % 3];
 
 	switch (type)
 	{
-		case 'A':
-			return (new A);
-		case 'B':
-			return (new B);
-		case 'C':
-			return (new C);
-		default:
-			return (0);
+	case 'A':
+		return (new A);
+	case 'B':
+		return (new B);
+	case 'C':
+		return (new C);
+	default:
+		return (0);
 	}
 }
 
@@ -82,9 +82,9 @@ void identify(Base& p)
 	{}
 }
 
-int	main(void)
+int main(void)
 {
-	Base *base = generate();
+	Base* base = generate();
 
 	identify(base);
 	identify(*base);

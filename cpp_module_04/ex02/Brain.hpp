@@ -19,10 +19,10 @@ class Brain
 {
 	std::string ideas[100];
 public:
-	Brain(void);							// default constructor
-	Brain(Brain& value);					// copy constructor
-	Brain& operator=(const Brain& value);	// copy assignment operator overflow
-	~Brain(void);							// destructor
+	Brain();
+	Brain(const Brain& value);
+	Brain& operator=(const Brain& value);
+	~Brain();
 };
 
 #endif /* BRAIN_HPP */

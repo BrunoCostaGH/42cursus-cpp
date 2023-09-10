@@ -13,10 +13,12 @@
 #include "RPN.hpp"
 
 RPN::RPN()
-{}
+{
+}
 
 RPN::RPN(const RPN&)
-{}
+{
+}
 
 RPN& RPN::operator=(const RPN&)
 {
@@ -24,9 +26,10 @@ RPN& RPN::operator=(const RPN&)
 }
 
 RPN::~RPN()
-{}
+{
+}
 
-static int	execute(std::stack<int>& stack, int firstNumber, int secondNumber)
+static int execute(std::stack<int>& stack, int firstNumber, int secondNumber)
 {
 	switch (stack.top())
 	{
@@ -47,7 +50,7 @@ static int	execute(std::stack<int>& stack, int firstNumber, int secondNumber)
  * RETURN VALUE
  * If RPN expression is valid returns it's result, otherwise throws an exception.
  */
- int	RPN::calculate(std::stack<int>& stack)
+int RPN::calculate(std::stack<int>& stack)
 {
 	int firstNumber;
 	int secondNumber;

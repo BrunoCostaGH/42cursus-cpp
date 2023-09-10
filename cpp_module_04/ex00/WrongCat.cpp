@@ -18,14 +18,14 @@ WrongCat::WrongCat(void)
 	this->type = "Wrong Cat";
 }
 
-WrongCat::WrongCat(WrongCat &value) : WrongAnimal(value)
+WrongCat::WrongCat(const WrongCat& value) : WrongAnimal(value)
 {
 	std::cout << "WrongCat copy constructor called\n";
 	*this = value;
 	this->type = value.type;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &value)
+WrongCat& WrongCat::operator=(const WrongCat& value)
 {
 	std::cout << "WrongCat copy assignment operator called\n";
 	this->type = value.type;

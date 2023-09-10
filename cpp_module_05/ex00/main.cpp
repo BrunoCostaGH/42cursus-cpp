@@ -28,7 +28,7 @@ int main(void)
 			bureaucrat.decrementGrade();
 			std::cout << bureaucrat;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -41,7 +41,7 @@ int main(void)
 			Bureaucrat bureaucrat("not_valid_init", 0);
 			std::cout << bureaucrat;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -57,7 +57,7 @@ int main(void)
 			bureaucrat.incrementGrade();
 			std::cout << bureaucrat;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}
@@ -73,7 +73,7 @@ int main(void)
 			bureaucrat.decrementGrade();
 			std::cout << bureaucrat;
 		}
-		catch (std::exception &e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what();
 		}

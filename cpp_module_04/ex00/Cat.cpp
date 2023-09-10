@@ -18,14 +18,14 @@ Cat::Cat(void)
 	this->type = "Cat";
 }
 
-Cat::Cat(Cat &value) : Animal(value)
+Cat::Cat(const Cat& value) : Animal(value)
 {
 	std::cout << "Cat copy constructor called\n";
 	*this = value;
 	this->type = value.type;
 }
 
-Cat &Cat::operator=(const Cat &value)
+Cat& Cat::operator=(const Cat& value)
 {
 	std::cout << "Cat copy assignment operator called\n";
 	this->type = value.type;

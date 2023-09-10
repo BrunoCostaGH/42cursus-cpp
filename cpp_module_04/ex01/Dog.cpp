@@ -19,7 +19,7 @@ Dog::Dog(void)
 	this->type = "Dog";
 }
 
-Dog::Dog(Dog &value) : Animal(value)
+Dog::Dog(const Dog& value) : Animal(value)
 {
 	std::cout << "Dog copy constructor called\n";
 	*this = value;
@@ -27,7 +27,7 @@ Dog::Dog(Dog &value) : Animal(value)
 	this->type = value.type;
 }
 
-Dog &Dog::operator=(const Dog &value)
+Dog& Dog::operator=(const Dog& value)
 {
 	std::cout << "Dog copy assignment operator called\n";
 	this->brain = new Brain(*value.brain);

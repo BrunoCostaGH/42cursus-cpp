@@ -14,7 +14,7 @@
 #include <list>
 #include "MutantStack.tpp"
 
-template <typename T>
+template<typename T>
 static void printContainer(typename T::iterator begin, typename T::iterator end)
 {
 	for (typename T::iterator it = begin; it != end; ++it)
@@ -26,15 +26,15 @@ static void printContainer(typename T::iterator begin, typename T::iterator end)
 
 int main()
 {
-		MutantStack<int> mutantStack;
+	MutantStack<int> mutantStack;
 
-		mutantStack.push(4);
-		mutantStack.push(3);
-		mutantStack.push(2);
-		mutantStack.push(1);
-		mutantStack.push(0);
+	mutantStack.push(4);
+	mutantStack.push(3);
+	mutantStack.push(2);
+	mutantStack.push(1);
+	mutantStack.push(0);
 
-		std::cout << "mutantStack contains:";
-		printContainer<MutantStack<int> >(mutantStack.begin(), mutantStack.end());
+	std::cout << "mutantStack contains:";
+	printContainer<MutantStack<int> >(mutantStack.begin(), mutantStack.end());
 	return 0;
 }

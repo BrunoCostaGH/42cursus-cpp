@@ -12,9 +12,9 @@
 
 #include "Serializer.hpp"
 
-int	main(void)
+int main(void)
 {
-	Data *data = new Data;
+	Data* data = new Data;
 	uintptr_t uData;
 
 	std::cout << data << std::endl;

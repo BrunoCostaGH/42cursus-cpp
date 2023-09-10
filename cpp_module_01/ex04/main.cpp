@@ -21,13 +21,13 @@
  * Goal: It will open the file <filename> and copies its content into a new file
  *		<filename>.replace, replacing every occurrence of s1 with s2.
  */
-int	main(int argc, char **argv)
+int main(int argc, char** argv)
 {
-	std::size_t		stPos;
-	std::string		sBuffer;
-	std::string		sOutput;
-	std::fstream	fsInput;
-	std::fstream	fsOutput;
+	std::size_t stPos;
+	std::string sBuffer;
+	std::string sOutput;
+	std::fstream fsInput;
+	std::fstream fsOutput;
 
 	if (argc == 4)
 	{

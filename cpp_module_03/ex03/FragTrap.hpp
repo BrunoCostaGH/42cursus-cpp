@@ -18,15 +18,14 @@
 class FragTrap : virtual public ClapTrap
 {
 public:
-	FragTrap(const std::string& value);			// Parameterized Constructor
-	/* Orthodox Canonical Form */
-	FragTrap(void);								// Constructor
-	FragTrap(FragTrap& value);					// Copy Constructor
-	FragTrap& operator=(const FragTrap& value);	// Copy Assignment Operator Overload
-	~FragTrap(void);							// Destructor
-	/* -- */
+	FragTrap();
+	FragTrap(const std::string& value);
+	FragTrap(const FragTrap& value);
+	FragTrap& operator=(const FragTrap& value);
+	~FragTrap();
+
 	using ClapTrap::attack;
-	void highFivesGuys(void);
+	void highFivesGuys();
 };
 
 #endif /* FRAGTRAP_HPP */

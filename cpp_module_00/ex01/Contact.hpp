@@ -18,10 +18,10 @@
 class Contact
 {
 	std::string phoneNumber;
-	std::string	firstName;
-	std::string	lastName;
-	std::string	nickname;
-	std::string	darkestSecret;
+	std::string firstName;
+	std::string lastName;
+	std::string nickname;
+	std::string darkestSecret;
 
 public:
 	// getters

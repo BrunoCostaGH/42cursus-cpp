@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:40:26 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/21 19:01:06 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/10 15:23:37 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ FragTrap::FragTrap(const std::string& value)
 	this->energyPoints = 100;
 	this->attackDamage = 30;
 }
-FragTrap::FragTrap(FragTrap &value) : ClapTrap(value)
+
+FragTrap::FragTrap(const FragTrap& value) : ClapTrap(value)
 {
 	std::cout << "`FragTrap' Copy constructor called\n";
 	*this = value;
@@ -38,7 +39,7 @@ FragTrap::FragTrap(FragTrap &value) : ClapTrap(value)
 	this->attackDamage = value.attackDamage;
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &value)
+FragTrap& FragTrap::operator=(const FragTrap& value)
 {
 	std::cout << "`FragTrap' Copy assignment operator called\n";
 	this->name = value.name;

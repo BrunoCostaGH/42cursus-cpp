@@ -16,12 +16,13 @@
 
 template<typename T>
 Array<T>::Array()
-		: elems(new T[0]), arrSize(0)
-{}
+	: elems(new T[0]), arrSize(0)
+{
+}
 
 template<typename T>
 Array<T>::Array(unsigned int n)
-		: elems(new T[n]), arrSize(n)
+	: elems(new T[n]), arrSize(n)
 {
 	for (unsigned int i = 0; i < n; i++)
 	{
@@ -30,8 +31,8 @@ Array<T>::Array(unsigned int n)
 }
 
 template<typename T>
-Array<T>::Array(const Array<T> &value)
-		: elems(new T[value.size()]), arrSize(value.size())
+Array<T>::Array(const Array<T>& value)
+	: elems(new T[value.size()]), arrSize(value.size())
 {
 	for (unsigned int i = 0; i < value.size(); i++)
 	{
@@ -40,13 +41,13 @@ Array<T>::Array(const Array<T> &value)
 }
 
 template<typename T>
-Array<T> &Array<T>::operator=(const Array<T> &value)
+Array<T>& Array<T>::operator=(const Array<T>& value)
 {
 	if (this == &value)
 		return (*this);
 	delete[] this->elems;
 	this->elems = new T[value.size()];
-	for(unsigned int i = 0; i < value.size(); i++)
+	for (unsigned int i = 0; i < value.size(); i++)
 	{
 		this->elems[i] = value.elems[i];
 	}
@@ -75,7 +76,7 @@ T& Array<T>::operator[](unsigned int n)
 }
 
 template<typename T>
-const char *Array<T>::OutOfBoundsException::what() const throw()
+const char* Array<T>::OutOfBoundsException::what() const throw()
 {
 	return ("Specified index is out of bounds!\n");
 }

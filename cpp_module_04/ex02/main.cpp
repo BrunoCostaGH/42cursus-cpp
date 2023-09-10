@@ -16,7 +16,7 @@
 
 int main(void)
 {
-	const AAnimal *animals[10];
+	const AAnimal* animals[10];
 
 	// init dogs
 	for (int i = 0; i < 5; ++i)

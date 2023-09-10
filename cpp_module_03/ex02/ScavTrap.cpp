@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:20:37 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/07/21 19:06:39 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/10 15:24:10 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ ScavTrap::ScavTrap(const std::string& value)
 	this->energyPoints = 50;
 	this->attackDamage = 20;
 }
-ScavTrap::ScavTrap(ScavTrap &value) : ClapTrap(value)
+
+ScavTrap::ScavTrap(const ScavTrap& value) : ClapTrap(value)
 {
 	std::cout << "`ScavTrap' Copy constructor called\n";
 	*this = value;
@@ -38,7 +39,7 @@ ScavTrap::ScavTrap(ScavTrap &value) : ClapTrap(value)
 	this->attackDamage = value.attackDamage;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &value)
+ScavTrap& ScavTrap::operator=(const ScavTrap& value)
 {
 	std::cout << "`ScavTrap' Copy assignment operator called\n";
 	this->name = value.name;
@@ -53,24 +54,23 @@ ScavTrap::~ScavTrap(void)
 	std::cout << "`ScavTrap' Destructor called\n";
 }
 
-
-void ScavTrap::attack(const std::string &target)
+void ScavTrap::attack(const std::string& target)
 {
 	if (!this->energyPoints)
 	{
-		std::cout << "`ScavTrap' ClapTrap " + this->name + " tried to attack " + target + \
-		", but did not have energy points!\n";
+		std::cout << "`ScavTrap' ClapTrap " + this->name + " tried to attack " +
+					 target + ", but did not have energy points!\n";
 		return;
 	}
 	else if (!this->hitPoints)
 	{
-		std::cout << "`ScavTrap' ClapTrap " + this->name + " tried to attack " + target + \
-		", but does not have hit points!\n";
+		std::cout << "`ScavTrap' ClapTrap " + this->name + " tried to attack " +
+					 target + ", but does not have hit points!\n";
 		return;
 	}
 	this->energyPoints--;
-	std::cout << "`ScavTrap' ClapTrap " + this->name + " attacks " + target + \
-		", causing " << this->attackDamage << " points of damage!\n";
+	std::cout << "`ScavTrap' ClapTrap " + this->name + " attacks " + target +
+				 ", causing " << this->attackDamage << " points of damage!\n";
 }
 
 void ScavTrap::guardGate(void)

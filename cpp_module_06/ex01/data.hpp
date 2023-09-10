@@ -14,5 +14,5 @@
 
 typedef struct sData
 {
-	void	*placeholder;
-}	Data;
+	void* placeholder;
+} Data;

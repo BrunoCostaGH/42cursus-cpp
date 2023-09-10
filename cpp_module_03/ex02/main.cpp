@@ -14,7 +14,7 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-int	main(void)
+int main(void)
 {
 	ClapTrap a("ClapTrack");
 	ScavTrap b("ScavTrap");

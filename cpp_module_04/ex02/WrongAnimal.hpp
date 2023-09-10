@@ -20,13 +20,13 @@ class WrongAnimal
 protected:
 	std::string type;
 public:
-	WrongAnimal(void);									// default constructor
-	WrongAnimal(WrongAnimal& value);					// copy constructor
-	WrongAnimal& operator=(const WrongAnimal& value);	// copy assignment operator overflow
-	virtual ~WrongAnimal(void);							// destructor
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal& value);
+	WrongAnimal& operator=(const WrongAnimal& value);
+	virtual ~WrongAnimal();
 
-	void makeSound(void) const;
-	std::string getType(void) const;
+	void makeSound() const;
+	std::string getType() const;
 };
 
 #endif /* WRONGANIMAL_HPP */
