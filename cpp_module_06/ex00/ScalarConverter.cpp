@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <string>
 #include <sstream>
-#include <limits>
 
 ScalarConverter::ScalarConverter()
 {
@@ -51,9 +49,9 @@ static void convert_float(const std::string& value, int* i, float* f, double* d)
 }
 
 static void convert_double(const std::string& value,
-	int* i,
-	float* f,
-	double* d)
+						   int* i,
+						   float* f,
+						   double* d)
 {
 	std::stringstream ss(value);
 
@@ -103,9 +101,9 @@ static void print_table(const int* aI, const float* aF, const double* aD)
 }
 
 static int convertFromInitialType(const std::string& literal,
-	int* i,
-	float* f,
-	double* d)
+								  int* i,
+								  float* f,
+								  double* d)
 {
 	if (literal.length() == 1 && !isdigit(literal[0]))
 	{
