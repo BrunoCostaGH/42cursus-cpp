@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:30:06 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/08/21 17:33:47 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:03:28 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,37 +32,34 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-static int convert_int(const char* argv, const std::string& value)
+static void convert_int(const std::string& value, int* i, float* f, double* d)
 {
-	int res;
 	std::stringstream ss(value);
 
-	if (value.length() == 1 && !isdigit(value[0]))
-		return (argv[0]);
-	ss >> res;
-	return (res);
+	ss >> *i;
+	*f = static_cast<float>(*i);
+	*d = static_cast<double>(*i);
 }
 
-static float convert_float(const char* argv, const std::string& value)
+static void convert_float(const std::string& value, int* i, float* f, double* d)
 {
-	float res;
 	std::stringstream ss(value);
 
-	if (value.length() == 1 && !isdigit(value[0]))
-		return (argv[0]);
-	ss >> res;
-	return (res);
+	ss >> *f;
+	*i = static_cast<int>(*f);
+	*d = static_cast<double>(*f);
 }
 
-static double convert_double(const char* argv, const std::string& value)
+static void convert_double(const std::string& value,
+	int* i,
+	float* f,
+	double* d)
 {
-	double res;
 	std::stringstream ss(value);
 
-	if (value.length() == 1 && !isdigit(value[0]))
-		return (argv[0]);
-	ss >> res;
-	return (res);
+	ss >> *d;
+	*i = static_cast<int>(*d);
+	*f = static_cast<float>(*d);
 }
 
 static void print_table(const int* aI, const float* aF, const double* aD)
@@ -105,19 +102,51 @@ static void print_table(const int* aI, const float* aF, const double* aD)
 	std::cout << "double: " << d.str() << std::endl;
 }
 
-void ScalarConverter::convert(const char* argv, const std::string& literal)
+static int convertFromInitialType(const std::string& literal,
+	int* i,
+	float* f,
+	double* d)
 {
-	int i = convert_int(argv, literal);
-	float f = convert_float(argv, literal);
-	double d = convert_double(argv, literal);
+	if (literal.length() == 1 && !isdigit(literal[0]))
+	{
+		*i = static_cast<unsigned char>(literal[0]);
+		*f = static_cast<unsigned char>(literal[0]);
+		*d = static_cast<unsigned char>(literal[0]);
+		return (0);
+	}
+	if ((literal.find_first_not_of("123456789.") == std::string::npos &&
+		 literal.find_first_of('.') == literal.find_last_of('.')))
+		convert_double(literal, i, f, d);
+	else if ((literal.find_first_not_of("123456789.f") == std::string::npos &&
+			  literal.find_first_of('.') == literal.find_last_of('.') &&
+			  literal.find_first_of('f') == literal.length() - 1))
+		convert_float(literal, i, f, d);
+	else if (isprint(literal[0]))
+		convert_int(literal, i, f, d);
+	else
+	{
+		std::cout << "Invalid conversion\n";
+		return (1);
+	}
+	return (0);
+}
 
-	if (literal == "nan")
+void ScalarConverter::convert(const std::string& literal)
+{
+	int i = 0;
+	float f = 0;
+	double d = 0;
+
+	if (convertFromInitialType(literal, &i, &f, &d))
+		return;
+	if (literal == "nan" || literal == "+nan")
 	{
 		f = std::numeric_limits<float>::quiet_NaN();
 		d = std::numeric_limits<double>::quiet_NaN();
 		print_table(0, &f, &d);
 	}
-	else if (literal == "inf" || literal == "inff")
+	else if (literal == "inf" || literal == "inff" || literal == "+inf" ||
+			 literal == "+inff")
 	{
 		f = std::numeric_limits<float>::infinity();
 		d = std::numeric_limits<double>::infinity();
@@ -129,15 +158,6 @@ void ScalarConverter::convert(const char* argv, const std::string& literal)
 		d = -std::numeric_limits<double>::infinity();
 		print_table(0, &f, &d);
 	}
-	else if ((literal.find_first_not_of("123456789.") == std::string::npos &&
-			  literal.find_first_of('.') == literal.find_last_of('.')) ||
-			 (literal.find_first_not_of("123456789.f") == std::string::npos &&
-			  literal.find_first_of('.') == literal.find_last_of('.') &&
-			  literal.find_first_of('f') == literal.length() - 1) ||
-			 isprint(literal[0]))
-	{
-		print_table(&i, &f, &d);
-	}
 	else
-		std::cout << "Invalid conversion\n";
+		print_table(&i, &f, &d);
 }
