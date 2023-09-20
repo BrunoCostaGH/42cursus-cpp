@@ -6,7 +6,7 @@
 /*   By: bsilva-c <bsilva-c@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:59:57 by bsilva-c          #+#    #+#             */
-/*   Updated: 2023/09/07 18:37:50 by bsilva-c         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:13:28 by bsilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,17 @@
 #include <string>
 
 template<class T>
-static void insertion(T& container, T& left, T& right)
+static void insertion(T& container, int value)
 {
-	while (left.size() && right.size())
+	for (typename T::iterator it = container.begin(); it != container.end(); ++it)
 	{
-		if (left.front() < right.front())
+		if (*it > value)
 		{
-			container.push_back(left.front());
-			left.erase(left.begin());
-		}
-		else
-		{
-			container.push_back(right.front());
-			right.erase(right.begin());
+			container.insert(it, value);
+			return ;
 		}
 	}
-	while (left.size())
-	{
-		container.push_back(left.front());
-		left.erase(left.begin());
-	}
-	while (right.size())
-	{
-		container.push_back(right.front());
-		right.erase(right.begin());
-	}
+	container.push_back(value);
 }
 
 template<class T>
@@ -50,33 +36,41 @@ static T& sortAlgorithm(T& container)
 {
 	if (container.size() <= 1)
 		return (container);
-
+	// Check for straggler
 	int straggler = 0;
 	if (container.size() % 2)
 	{
 		straggler = container.back();
 		container.pop_back();
 	}
-	int midPoint = container.size() / 2;
-	T left(container.begin(), container.begin() + midPoint);
-	T right(container.begin() + midPoint, container.end());
 
-	left = sortAlgorithm(left);
-	right = sortAlgorithm(right);
-	container.clear();
-	insertion(container, left, right);
-	if (straggler)
+	typename T::iterator it;
+	int value[2];
+	// Order first element of each pair, sorting group
+	for (size_t i = 0; i < (container.size() / 2); i++)
 	{
-		for (typename T::iterator it = container.begin(); it != container.end(); ++it)
+		it = container.begin();
+		std::advance(it, i);
+		value[0] = container.at(i);
+		value[1] = container.at(i + 1);
+
+		container.erase(it, it + 2);
+		if (value[0] > value[1])
 		{
-			if (*it > straggler)
-			{
-				container.insert(it, straggler);
-				return (container);
-			}
+			container.push_back(value[0]);
+			insertion(container, value[1]);
 		}
-		container.push_back(straggler);
+		else
+		{
+			container.push_back(value[1]);
+			insertion(container, value[0]);
+		}
 	}
+	//TODO Sort second half of the container
+
+	// Insert straggler back
+	if (straggler)
+		insertion(container, straggler);
 	return (container);
 }
 
